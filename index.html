@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <!-- PLACEHOLDER: couple names in title -->
 <title>Nitin V &amp; Amulya K S · Wedding Invitation</title>
-<meta name="description" content="Together with our families, we invite you to celebrate the wedding of Nitin V &amp; Amulya K S on 18 &amp; 19 November 2026 at Palace Grounds, Bengaluru.">
+<meta name="description" content="Together with our families, we invite you to celebrate the wedding of Nitin V &amp; Amulya K S — Reception on 18 November and Dhaaraa Muhurtha on 19 November 2026 at Madhava Mangala Samudaya Bhavana, Shivamogga.">
 <meta name="theme-color" content="#0B1020">
 <meta name="color-scheme" content="dark">
 
@@ -16,7 +16,7 @@
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Nitin &amp; Amulya's Wedding">
 <meta property="og:title" content="Nitin V &amp; Amulya K S · Wedding Invitation">
-<meta property="og:description" content="Save the Date · 18 &amp; 19 November 2026 · Palace Grounds, Bengaluru. With love, the Sharma &amp; Reddy Families.">
+<meta property="og:description" content="ಆರತಕ್ಷತೆ 18-11-2026 · ಧಾರಾಮುಹೂರ್ತ 19-11-2026 · ಮಾಧವ ಮಂಗಲ ಸಮುದಾಯ ಭವನ, ಶಿವಮೊಗ್ಗ. Reception 18 Nov · Muhurtha 19 Nov 2026 · Shivamogga.">
 <!-- REPLACE: og_cover.jpg (1200×630) -->
 <meta property="og:image" content="https://placehold.co/1200x630/C9A84C/FAF3E0.png?text=Nitin+%26+Amulya%5Cn18-19.11.2026&amp;font=playfair-display">
 <meta property="og:image:type" content="image/png">
@@ -529,6 +529,33 @@ html.lb-lock,html.lb-lock body{overflow:hidden}
 @keyframes sealPulse{0%{transform:scale(1);opacity:.85}100%{transform:scale(2.1);opacity:0}}
 .seal-dot .ic{width:22px;height:22px;stroke-width:1.6}
 
+/* ─── Verse (Kuvempu) ─── */
+.verse-sec{padding-top:clamp(40px,7vw,72px);padding-bottom:0}
+.verse{
+  position:relative;max-width:760px;margin:0 auto;text-align:center;
+  padding:clamp(40px,7vw,56px) clamp(20px,5vw,44px) clamp(28px,5vw,40px);border-radius:var(--r-card);
+  background:radial-gradient(80% 60% at 50% 0%,rgba(201,168,76,.12),transparent 70%),var(--surface);
+  border:1px solid var(--gold-a25);
+}
+.verse::before{content:'\201C';position:absolute;top:-6px;left:50%;transform:translateX(-50%);font-size:5rem;line-height:1;color:var(--gold);opacity:.55}
+.verse blockquote{margin:0}
+.verse p{margin:0;white-space:pre-line;font-style:italic;font-size:clamp(1.15rem,3.6vw,1.4rem);line-height:1.75;color:var(--cream)}
+.verse figcaption{margin-top:18px;color:var(--gold);font-weight:600;letter-spacing:.06em}
+.poem{margin:22px auto 0;max-width:46ch;white-space:pre-line;font-style:italic;line-height:1.8;color:var(--cream-2)}
+.blessing{max-width:34ch;margin-left:auto;margin-right:auto;line-height:1.7}
+
+/* ─── Families ─── */
+.hosts-grid{display:grid;grid-template-columns:1fr;gap:20px;max-width:880px;margin:0 auto}
+.host-card{
+  text-align:center;padding:28px 22px;border-radius:var(--r-card);
+  background:linear-gradient(180deg,var(--surface-hi),var(--surface));border:1px solid var(--gold-a25);
+}
+.host-title{margin:0 0 14px;color:var(--gold);font-size:.875rem;font-weight:600;letter-spacing:.24em;text-transform:uppercase}
+.host-list{list-style:none;margin:0;padding:0;display:grid;gap:6px;color:var(--cream-2)}
+.host-list .em{color:var(--gold-hi);font-weight:600;font-size:1.1em}
+.wishers{max-width:880px;margin:20px auto 0}
+@media (min-width:768px){.hosts-grid{grid-template-columns:1fr 1fr}}
+
 /* ─── Footer ─── */
 .footer{position:relative;text-align:center;padding:clamp(70px,10vw,110px) var(--gutter) 40px;max-width:900px;margin:0 auto}
 .footer .with{display:block;font-family:var(--f-script);font-size:clamp(2.6rem,10vw,3.6rem);line-height:1.2;padding:0 .2em}
@@ -536,7 +563,10 @@ html.lb-lock,html.lb-lock body{overflow:hidden}
 .family{margin:22px 0 0}
 .family .t-en{display:block;font-size:clamp(1.5rem,5vw,1.9rem);font-weight:600}
 .family .t-kn{display:block;margin-top:6px;font-family:var(--f-kn-deco);font-size:clamp(1.5rem,5.5vw,2rem);color:var(--cream-2)}
-.footer-note{margin:22px auto 0;color:var(--cream-3);font-style:italic}
+.footer-note{margin:0 auto 26px;max-width:40ch;color:var(--cream-2);font-style:italic;font-size:1.15rem}
+.footer-addr{margin:10px auto 0;max-width:40ch;color:var(--cream-3)}
+.contact-row{margin-top:22px;display:flex;flex-wrap:wrap;justify-content:center;gap:12px}
+.contact-row .btn{font-variant-numeric:lining-nums;letter-spacing:.06em}
 .hashtag{display:inline-block;margin-top:18px;color:var(--gold);letter-spacing:.12em;font-weight:600}
 
 /* ═══════════════════════════════════════════════════
@@ -657,6 +687,7 @@ catch (e) { document.body.classList.add('lang-kn'); }</script>
     <symbol id="i-pause" viewBox="0 0 24 24"><rect x="6" y="5" width="4.2" height="14" rx="1.2"/><rect x="13.8" y="5" width="4.2" height="14" rx="1.2"/></symbol>
     <symbol id="i-music" viewBox="0 0 24 24"><path d="M9 18V6l11-2v12"/><circle cx="6.5" cy="18" r="2.5"/><circle cx="17.5" cy="16" r="2.5"/></symbol>
     <symbol id="i-down" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></symbol>
+    <symbol id="i-phone" viewBox="0 0 24 24"><path d="M5 3.5h3.2l1.6 4.2-2.1 1.4a11 11 0 0 0 5.2 5.2l1.4-2.1 4.2 1.6V17a2.5 2.5 0 0 1-2.7 2.5C9.6 19 5 14.4 4.5 8.2A2.5 2.5 0 0 1 5 3.5z"/></symbol>
     <symbol id="i-close" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></symbol>
     <symbol id="i-left" viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></symbol>
     <symbol id="i-right" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></symbol>
@@ -746,32 +777,30 @@ catch (e) { document.body.classList.add('lang-kn'); }</script>
   <svg class="toran" id="toran" viewBox="0 0 1200 150" preserveAspectRatio="xMidYMin slice" aria-hidden="true"></svg>
 
   <div class="hero-inner">
-    <!-- PLACEHOLDER: invocation (optional – remove if not wanted) -->
-    <p class="invocation h-anim" style="--d:.05s"><span class="only-en">॥ Shri Ganeshaya Namah ॥</span><span class="kn only-kn" lang="kn">॥ ಶ್ರೀ ಗಣೇಶಾಯ ನಮಃ ॥</span></p>
-    <p class="eyebrow h-anim" style="--d:.2s"><span data-i18n="heroPre">Together with their families</span></p>
+    <p class="invocation h-anim" style="--d:.05s">
+      <span class="only-en">॥ Sri Yadavalli Chowdammadevi Prasanna ॥<br>॥ Sri Venkateshwaraya Namah ॥</span>
+      <span class="kn only-kn" lang="kn">॥ ಶ್ರೀ ಯಡವಳ್ಳಿ ಚೌಡಮ್ಮದೇವಿ ಪ್ರಸನ್ನ ॥<br>॥ ಶ್ರೀ ವೆಂಕಟೇಶ್ವರಾಯ ನಮಃ ॥</span>
+    </p>
+    <p class="eyebrow blessing h-anim" style="--d:.2s"><span data-i18n="heroPre">With the blessings of Late Smt. Gangamma &amp; Late Sri Muttaiah</span></p>
 
     <h1 class="names h-anim" id="heroNames" style="--d:.4s">
-      <!-- PLACEHOLDER: bride & groom names (English) -->
       <span class="n-en only-en"><span class="shimmer">Nitin</span><span class="amp">&amp;</span><span class="shimmer">Amulya</span></span>
-      <!-- PLACEHOLDER: bride & groom names (Kannada) -->
       <span class="n-kn kn only-kn" lang="kn">ನಿತಿನ್ <svg viewBox="0 0 10 10" aria-hidden="true"><use href="#i-diamond"/></svg> ಅಮೂಲ್ಯ</span>
     </h1>
 
-    <p class="hero-sub h-anim" style="--d:.6s"><span data-i18n="heroPost">request the pleasure of your company as they begin their forever</span></p>
+    <p class="hero-sub h-anim" style="--d:.6s"><span data-i18n="heroPost">A warm invitation to you and your family</span></p>
 
     <h2 class="save h-anim" style="--d:.8s">
       <span class="t-en shimmer">Save the Date</span>
       <span class="t-kn kn" lang="kn">ದಿನಾಂಕ ಕಾಯ್ದಿರಿಸಿ</span>
     </h2>
 
-    <!-- PLACEHOLDER: wedding date -->
     <div class="date-row h-anim" style="--d:.95s">
       <span class="side" data-i18n="heroDay">Nov</span>
       <span class="day">18–19</span>
       <span class="side" data-i18n="heroMonth">2026</span>
     </div>
-    <!-- PLACEHOLDER: venue -->
-    <p class="hero-venue h-anim" style="--d:1.05s"><svg class="ic"><use href="#i-pin"/></svg><span data-i18n="heroVenue">Palace Grounds, Bengaluru</span></p>
+    <p class="hero-venue h-anim" style="--d:1.05s"><svg class="ic"><use href="#i-pin"/></svg><span data-i18n="heroVenue">Madhava Mangala Samudaya Bhavana, Shivamogga</span></p>
 
     <div class="h-anim" style="--d:1.2s" id="countdownWrap">
       <div class="countdown" id="countdown" role="timer" aria-live="off">
@@ -787,41 +816,46 @@ catch (e) { document.body.classList.add('lang-kn'); }</script>
   </div>
 </section>
 
+<!-- ═══ VERSE (Kuvempu) ═══ -->
+<section class="section verse-sec" aria-label="Verse">
+  <figure class="verse reveal">
+    <blockquote><p data-i18n="verseText">A whole human lifetime is one auspicious moment. Marriage is a path to walk together, not a house to arrive at. What keeps husband and wife living as one is love alone — love is the bond.</p></blockquote>
+    <figcaption><span data-i18n="verseBy">— Rashtrakavi Kuvempu</span></figcaption>
+  </figure>
+</section>
+
 <!-- ═══ 2. COUPLE ═══ -->
 <section class="section" id="couple" aria-labelledby="coupleTitle">
   <header class="sec-head reveal">
     <p class="eyebrow"><span data-i18n="coupleEyebrow">Two souls, one journey</span></p>
     <svg class="orn" aria-hidden="true"><use href="#orn"/></svg>
-    <h2 class="sec-title" id="coupleTitle"><span class="t-en shimmer">The Bride &amp; Groom</span><span class="t-kn kn" lang="kn">ವಧು ಮತ್ತು ವರ</span></h2>
+    <h2 class="sec-title" id="coupleTitle"><span class="t-en shimmer">The Groom &amp; Bride</span><span class="t-kn kn" lang="kn">ವರ ಮತ್ತು ವಧು</span></h2>
+    <p class="poem"><span data-i18n="couplePoem">As two hearts become one and two families unite in joy, may your blessings be with us as we walk the seven steps of our new journey together.</span></p>
   </header>
 
   <div class="couple-grid">
     <article class="person reveal" style="--d:.05s">
       <div class="frame">
-        <!-- REPLACE: couple_photo_1.jpg (bride, square ≥400×400) -->
-        <img src="https://placehold.co/400x400/C9A84C/FAF3E0?text=Amulya&amp;font=playfair-display" width="400" height="400" alt="Portrait of Amulya, the bride" data-i18n-alt="brideAlt" loading="lazy" decoding="async">
+        <!-- REPLACE: couple_photo_2.jpg (groom, square ≥400×400) -->
+        <img src="https://placehold.co/400x400/C9A84C/FAF3E0?text=Nitin&amp;font=playfair-display" width="400" height="400" alt="Portrait of Nitin, the groom" data-i18n-alt="groomAlt" loading="lazy" decoding="async">
       </div>
-      <p class="role"><span data-i18n="brideRole">The Bride</span></p>
-      <!-- PLACEHOLDER: bride name -->
-      <h3 class="p-name"><span class="script shimmer only-en">Amulya K S</span><span class="kn only-kn" lang="kn">ಚಿ॥ ಸೌ॥ ಅಮೂಲ್ಯ ಕೆ. ಎಸ್.</span></h3>
-      <!-- PLACEHOLDER: bride parents + bio -->
-      <p class="parents"><span data-i18n="brideParents">Daughter of Mr. &amp; Mrs. Sharma</span></p>
-      <p class="bio"><span data-i18n="brideBio">A Bharatanatyam dancer with a laugh that fills every room. She believes every good story begins over a cup of filter coffee.</span></p>
+      <p class="role"><span data-i18n="groomRole">The Groom</span></p>
+      <h3 class="p-name"><span class="script shimmer only-en">Nitin V</span><span class="kn only-kn" lang="kn">ಚಿ॥ ರಾ॥ ನಿತಿನ್ ವಿ.</span></h3>
+      <p class="bio"><span data-i18n="groomBio">B.E. Computer Science</span></p>
+      <p class="parents"><span data-i18n="groomParents">Eldest son of Smt. Yashoda &amp; Sri Venkatesh (Ex-BSF), Mysuru</span></p>
     </article>
 
     <div class="couple-amp reveal only-en" style="--d:.15s" aria-hidden="true">&amp;</div>
 
     <article class="person reveal" style="--d:.25s">
       <div class="frame">
-        <!-- REPLACE: couple_photo_2.jpg (groom, square ≥400×400) -->
-        <img src="https://placehold.co/400x400/C9A84C/FAF3E0?text=Nitin&amp;font=playfair-display" width="400" height="400" alt="Portrait of Nitin, the groom" data-i18n-alt="groomAlt" loading="lazy" decoding="async">
+        <!-- REPLACE: couple_photo_1.jpg (bride, square ≥400×400) -->
+        <img src="https://placehold.co/400x400/C9A84C/FAF3E0?text=Amulya&amp;font=playfair-display" width="400" height="400" alt="Portrait of Amulya, the bride" data-i18n-alt="brideAlt" loading="lazy" decoding="async">
       </div>
-      <p class="role"><span data-i18n="groomRole">The Groom</span></p>
-      <!-- PLACEHOLDER: groom name -->
-      <h3 class="p-name"><span class="script shimmer only-en">Nitin V</span><span class="kn only-kn" lang="kn">ಚಿ॥ ನಿತಿನ್ ವಿ.</span></h3>
-      <!-- PLACEHOLDER: groom parents + bio -->
-      <p class="parents"><span data-i18n="groomParents">Son of Mr. &amp; Mrs. Reddy</span></p>
-      <p class="bio"><span data-i18n="groomBio">An engineer by day and a trekker by heart. He has climbed many peaks, but says meeting Amulya was the finest view of all.</span></p>
+      <p class="role"><span data-i18n="brideRole">The Bride</span></p>
+      <h3 class="p-name"><span class="script shimmer only-en">Amulya K S</span><span class="kn only-kn" lang="kn">ಚಿ॥ ಸೌ॥ ಅಮೂಲ್ಯ ಕೆ. ಎಸ್.</span></h3>
+      <p class="bio"><span data-i18n="brideBio">B.E. Civil Engineering</span></p>
+      <p class="parents"><span data-i18n="brideParents">Eldest daughter of Smt. Sridevi &amp; Sri Sharanappa Olekara (Retd. Agriculture Officer, Dept. of Agriculture), Shivamogga</span></p>
     </article>
   </div>
 </section>
@@ -834,56 +868,31 @@ catch (e) { document.body.classList.add('lang-kn'); }</script>
     <h2 class="sec-title" id="eventsTitle"><span class="t-en shimmer">Wedding Celebrations</span><span class="t-kn kn" lang="kn">ವಿವಾಹ ಮಹೋತ್ಸವ</span></h2>
   </header>
 
-  <!-- PLACEHOLDER: all event dates, times, venues -->
   <div class="tl-wrap" id="timeline">
     <div class="tl-line" aria-hidden="true"><span class="tl-fill" id="tlFill"></span></div>
     <ol class="timeline">
-      <li class="tl-item reveal">
-        <div class="tl-dot" aria-hidden="true"><svg class="ic"><use href="#i-leaf"/></svg></div>
-        <article class="tl-card">
-          <h3 class="ev-title"><span class="t-en shimmer">Mehendi</span><span class="t-kn kn" lang="kn">ಮೆಹೆಂದಿ</span></h3>
-          <ul class="meta">
-            <li><svg class="ic"><use href="#i-cal"/></svg><span data-i18n="e1Date">Wednesday, 18 November 2026</span></li>
-            <li><svg class="ic"><use href="#i-clock"/></svg><span data-i18n="e1Time">10:00 AM onwards</span></li>
-            <li><svg class="ic"><use href="#i-pin"/></svg><span data-i18n="e1Venue">Sharma Residence, Jayanagar, Bengaluru</span></li>
-          </ul>
-          <p class="dress"><span data-i18n="e1Dress">Dress code: shades of green</span></p>
-        </article>
-      </li>
-      <li class="tl-item reveal">
-        <div class="tl-dot" aria-hidden="true"><svg class="ic"><use href="#i-bowl"/></svg></div>
-        <article class="tl-card">
-          <h3 class="ev-title"><span class="t-en shimmer">Haldi</span><span class="t-kn kn" lang="kn">ಅರಿಶಿನ ಶಾಸ್ತ್ರ</span></h3>
-          <ul class="meta">
-            <li><svg class="ic"><use href="#i-cal"/></svg><span data-i18n="e2Date">Wednesday, 18 November 2026</span></li>
-            <li><svg class="ic"><use href="#i-clock"/></svg><span data-i18n="e2Time">4:00 PM</span></li>
-            <li><svg class="ic"><use href="#i-pin"/></svg><span data-i18n="e2Venue">Reddy Residence, Malleshwaram, Bengaluru</span></li>
-          </ul>
-          <p class="dress"><span data-i18n="e2Dress">Dress code: sunshine yellow</span></p>
-        </article>
-      </li>
-      <li class="tl-item reveal">
-        <div class="tl-dot" aria-hidden="true"><svg class="ic"><use href="#i-rings"/></svg></div>
-        <article class="tl-card">
-          <h3 class="ev-title"><span class="t-en shimmer">Wedding</span><span class="t-kn kn" lang="kn">ಧಾರಾ ಮುಹೂರ್ತ</span></h3>
-          <ul class="meta">
-            <li><svg class="ic"><use href="#i-cal"/></svg><span data-i18n="e3Date">Thursday, 19 November 2026</span></li>
-            <li><svg class="ic"><use href="#i-clock"/></svg><span data-i18n="e3Time">Muhurtham at 10:30 AM</span></li>
-            <li><svg class="ic"><use href="#i-pin"/></svg><span data-i18n="e3Venue">Palace Grounds, Bengaluru</span></li>
-          </ul>
-          <p class="dress"><span data-i18n="e3Dress">Dress code: traditional silk</span></p>
-        </article>
-      </li>
       <li class="tl-item reveal">
         <div class="tl-dot" aria-hidden="true"><svg class="ic"><use href="#i-sparkle"/></svg></div>
         <article class="tl-card">
           <h3 class="ev-title"><span class="t-en shimmer">Reception</span><span class="t-kn kn" lang="kn">ಆರತಕ್ಷತೆ</span></h3>
           <ul class="meta">
-            <li><svg class="ic"><use href="#i-cal"/></svg><span data-i18n="e4Date">Thursday, 19 November 2026</span></li>
-            <li><svg class="ic"><use href="#i-clock"/></svg><span data-i18n="e4Time">7:00 PM onwards</span></li>
-            <li><svg class="ic"><use href="#i-pin"/></svg><span data-i18n="e4Venue">Palace Grounds, Bengaluru</span></li>
+            <li><svg class="ic"><use href="#i-cal"/></svg><span data-i18n="rcDate">Wednesday, 18 November 2026</span></li>
+            <li><svg class="ic"><use href="#i-clock"/></svg><span data-i18n="rcTime">7:30 PM</span></li>
+            <li><svg class="ic"><use href="#i-pin"/></svg><span data-i18n="evVenue">Madhava Mangala Samudaya Bhavana, Shivamogga</span></li>
           </ul>
-          <p class="dress"><span data-i18n="e4Dress">Dress code: evening formal</span></p>
+        </article>
+      </li>
+      <li class="tl-item reveal">
+        <div class="tl-dot" aria-hidden="true"><svg class="ic"><use href="#i-rings"/></svg></div>
+        <article class="tl-card">
+          <h3 class="ev-title"><span class="t-en shimmer">Dhaaraa Muhurtha</span><span class="t-kn kn" lang="kn">ಧಾರಾಮುಹೂರ್ತ</span></h3>
+          <ul class="meta">
+            <li><svg class="ic"><use href="#i-cal"/></svg><span data-i18n="muDate">Thursday, 19 November 2026</span></li>
+            <li><svg class="ic"><use href="#i-clock"/></svg><span data-i18n="muTime">9:30 AM – 10:30 AM</span></li>
+            <li><svg class="ic"><use href="#i-sparkle"/></svg><span data-i18n="muLagna">Dhanur Lagna</span></li>
+            <li><svg class="ic"><use href="#i-pin"/></svg><span data-i18n="evVenue">Madhava Mangala Samudaya Bhavana, Shivamogga</span></li>
+          </ul>
+          <p class="dress"><span data-i18n="muNote">Parabhava Samvatsara · Dakshinayana · Sharad Ritu · Kartika Masa · Shukla Paksha Dashami</span></p>
         </article>
       </li>
     </ol>
@@ -900,13 +909,11 @@ catch (e) { document.body.classList.add('lang-kn'); }</script>
 
   <div class="venue-card reveal">
     <span class="venue-icon" aria-hidden="true"><svg class="ic" viewBox="0 0 48 48"><use href="#i-temple"/></svg></span>
-    <!-- PLACEHOLDER: venue name + address -->
-    <h3 class="venue-name"><span class="t-en shimmer">Palace Grounds</span><span class="t-kn kn" lang="kn">ಅರಮನೆ ಮೈದಾನ</span></h3>
-    <p class="venue-addr"><span data-i18n="venueAddr">Jayamahal Road, Vasanth Nagar, Bengaluru, Karnataka 560052</span></p>
-    <p class="venue-note"><span data-i18n="venueNote">Muhurtham 10:30 AM · Lunch to follow</span></p>
+    <h3 class="venue-name"><span class="t-en shimmer">Madhava Mangala Samudaya Bhavana</span><span class="t-kn kn" lang="kn">ಮಾಧವ ಮಂಗಲ ಸಮುದಾಯ ಭವನ</span></h3>
+    <p class="venue-addr"><span data-i18n="venueAddr">Near Delhi World School, Malligenahalli, Sagara Road, Shivamogga</span></p>
+    <p class="venue-note"><span data-i18n="venueNote">Reception &amp; Muhurtha both at this venue</span></p>
     <div class="btn-row">
-      <!-- PLACEHOLDER: Google Maps link (paste the venue's own share link if you prefer) -->
-      <a class="btn btn-gold" id="mapsBtn" href="https://www.google.com/maps/search/?api=1&amp;query=Palace+Grounds+Bengaluru" target="_blank" rel="noopener">
+      <a class="btn btn-gold" id="mapsBtn" href="https://maps.app.goo.gl/28QB13v4GvLnmfSLA" target="_blank" rel="noopener">
         <svg class="ic"><use href="#i-map"/></svg><span data-i18n="mapsBtn">Open in Google Maps</span>
       </a>
       <a class="btn btn-ghost" id="calBtn" href="#" target="_blank" rel="noopener">
@@ -953,8 +960,7 @@ catch (e) { document.body.classList.add('lang-kn'); }</script>
     <p class="eyebrow"><span data-i18n="rsvpEyebrow">Kindly respond</span></p>
     <svg class="orn" aria-hidden="true"><use href="#orn"/></svg>
     <h2 class="sec-title" id="rsvpTitle"><span class="t-en shimmer">We'd Love to See You There</span><span class="t-kn kn" lang="kn">ನಿಮ್ಮ ಆಗಮನವನ್ನು ಎದುರು ನೋಡುತ್ತಿದ್ದೇವೆ</span></h2>
-    <p class="rsvp-text" style="margin-top:20px"><span data-i18n="rsvpText">Your blessings and presence mean the world to us. Kindly confirm by 10 November 2026.</span></p>
-    <!-- PLACEHOLDER: WhatsApp number is set in CONFIG.whatsapp in the script below -->
+    <p class="rsvp-text" style="margin-top:20px"><span data-i18n="rsvpText">On this auspicious occasion, we lovingly invite you and your family to attend our children's wedding, bless the newly-wed couple and shower them with your blessings.</span></p>
     <a class="btn-seal" id="rsvpBtn" href="https://wa.me/918951813296" target="_blank" rel="noopener">
       <span class="seal-dot" aria-hidden="true"><svg class="ic"><use href="#i-chat"/></svg></span>
       <span data-i18n="rsvpBtn">RSVP on WhatsApp</span>
@@ -962,17 +968,76 @@ catch (e) { document.body.classList.add('lang-kn'); }</script>
   </div>
 </section>
 
+<!-- ═══ FAMILIES ═══ -->
+<section class="section" id="families" aria-labelledby="familiesTitle">
+  <header class="sec-head reveal">
+    <p class="eyebrow"><span data-i18n="familiesEyebrow">With love from both families</span></p>
+    <svg class="orn" aria-hidden="true"><use href="#orn"/></svg>
+    <h2 class="sec-title" id="familiesTitle"><span class="t-en shimmer">Awaiting Your Presence</span><span class="t-kn kn" lang="kn">ತಮ್ಮ ಆಗಮನಾಭಿಲಾಷಿಗಳು</span></h2>
+  </header>
+
+  <div class="hosts-grid">
+    <div class="host-card reveal" style="--d:.05s">
+      <h3 class="host-title"><span data-i18n="groomSide">Groom's family</span></h3>
+      <ul class="host-list only-en">
+        <li class="em">Smt. Yashoda</li>
+        <li class="em">Sri Venkatesh</li>
+        <li>Chi. Chinthan V., B.E. Mech</li>
+        <li>Ku. Chandana V., B.Tech. EEE</li>
+      </ul>
+      <ul class="host-list kn only-kn" lang="kn">
+        <li class="em">ಶ್ರೀಮತಿ ಯಶೋದ</li>
+        <li class="em">ಶ್ರೀ ವೆಂಕಟೇಶ್</li>
+        <li>ಚಿ॥ ಚಿಂತನ್ ವಿ., ಬಿ.ಇ. (ಮೆಕ್ಯಾನಿಕಲ್)</li>
+        <li>ಕು॥ ಚಂದನ ವಿ., ಬಿ.ಟೆಕ್. (ಇ.ಇ.ಇ.)</li>
+      </ul>
+    </div>
+    <div class="host-card reveal" style="--d:.15s">
+      <h3 class="host-title"><span data-i18n="brideSide">Bride's family</span></h3>
+      <ul class="host-list only-en">
+        <li class="em">Smt. Sridevi</li>
+        <li class="em">Sri Sharanappa Olekara</li>
+        <li>Chi. Ranjith Kumar, B.E. Civil</li>
+        <li>Shivamogga</li>
+      </ul>
+      <ul class="host-list kn only-kn" lang="kn">
+        <li class="em">ಶ್ರೀಮತಿ ಶ್ರೀದೇವಿ</li>
+        <li class="em">ಶ್ರೀ ಶರಣಪ್ಪ ಓಲೇಕಾರ</li>
+        <li>ಚಿ॥ ರಂಜಿತ್ ಕುಮಾರ್, ಬಿ.ಇ. (ಸಿವಿಲ್)</li>
+        <li>ಶಿವಮೊಗ್ಗ</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="host-card wishers reveal">
+    <h3 class="host-title"><span data-i18n="wishersTitle">Wishing for your joyful arrival</span></h3>
+    <ul class="host-list only-en">
+      <li>Smt. Sakamma &amp; Sri Giriyappa and family</li>
+      <li>Smt. Manjula &amp; Sri Munivenkatesh</li>
+      <li>Relatives &amp; friends</li>
+    </ul>
+    <ul class="host-list kn only-kn" lang="kn">
+      <li>ಶ್ರೀಮತಿ ಸಾಕಮ್ಮ ಮತ್ತು ಶ್ರೀ ಗಿರಿಯಪ್ಪ, ಕುಟುಂಬದವರು</li>
+      <li>ಶ್ರೀಮತಿ ಮಂಜುಳ ಮತ್ತು ಶ್ರೀ ಮುನಿವೆಂಕಟೇಶ್</li>
+      <li>ಬಂಧು-ಮಿತ್ರರು</li>
+    </ul>
+  </div>
+</section>
+
 </main>
 
 <!-- ═══ 7. FOOTER ═══ -->
 <footer class="footer">
+  <p class="footer-note"><span data-i18n="footerNote">Your arrival is the only gift we wish for. Your presence is our joy.</span></p>
   <svg class="orn" aria-hidden="true"><use href="#orn"/></svg>
   <span class="with shimmer only-en">With love,</span>
   <span class="with-kn only-kn" lang="kn">ಪ್ರೀತಿಯಿಂದ</span>
-  <!-- PLACEHOLDER: family name -->
-  <p class="family"><span class="t-en">The Sharma &amp; Reddy Families</span><span class="t-kn" lang="kn">ಶರ್ಮಾ ಮತ್ತು ರೆಡ್ಡಿ ಕುಟುಂಬಗಳು</span></p>
-  <p class="footer-note"><span data-i18n="footerNote">We look forward to celebrating with you</span></p>
-  <!-- PLACEHOLDER: wedding hashtag -->
+  <p class="family"><span class="t-en">Smt. Yashoda &amp; Sri Venkatesh</span><span class="t-kn" lang="kn">ಶ್ರೀಮತಿ ಯಶೋದ ಮತ್ತು ಶ್ರೀ ವೆಂಕಟೇಶ್</span></p>
+  <p class="footer-addr"><span data-i18n="footerAddr">Malenada Nilaya, Sri Mahalakshmi Drushti Enclave, J.P. Nagar, Mysuru</span></p>
+  <div class="contact-row">
+    <a class="btn btn-ghost" href="tel:+919449313296"><svg class="ic"><use href="#i-phone"/></svg>94493 13296</a>
+    <a class="btn btn-ghost" href="tel:+918951813296"><svg class="ic"><use href="#i-phone"/></svg>89518 13296</a>
+  </div>
   <span class="hashtag only-en">#NitinWedsAmulya</span><span class="hashtag only-kn" lang="kn">#ನಿತಿನ್_ಅಮೂಲ್ಯ</span>
 </footer>
 
@@ -1003,56 +1068,59 @@ catch (e) { document.body.classList.add('lang-kn'); }</script>
 'use strict';
 
 /* ══════════════════════════════════════════════════════════════
-   CONFIG — PLACEHOLDER values. Edit these, plus the I18N text below.
+   CONFIG
    ══════════════════════════════════════════════════════════════ */
 const CONFIG = {
-  weddingStart: '2026-11-19T10:30:00+05:30', /* PLACEHOLDER: muhurtham, IST */
-  weddingHours: 4,                           /* length of the calendar event */
+  weddingStart: '2026-11-19T09:30:00+05:30', /* Dhaaraa Muhurtha, IST — countdown target */
+  weddingHours: 1,                           /* muhurtha 9:30–10:30 → calendar event length */
   whatsapp: '918951813296',                  /* country code + number, digits only */
-  calendarTitle: 'Nitin & Amulya — Wedding',  /* PLACEHOLDER */
-  calendarPlace: 'Palace Grounds, Jayamahal Road, Bengaluru 560052', /* PLACEHOLDER */
-  /* Optional: path/URL to your own MP3 (e.g. 'music/nadaswaram.mp3').
-     Leave empty to use the built-in synthesised instrumental (Pachelbel's Canon, public domain). */
+  calendarTitle: 'Nitin & Amulya — Dhaaraa Muhurtha',
+  calendarPlace: 'Madhava Mangala Samudaya Bhavana, Near Delhi World School, Malligenahalli, Sagara Road, Shivamogga',
+  /* Path/URL to the MP3; leave empty to use the built-in synthesised instrumental. */
   musicUrl: 'Madarangi-Kannada.mp3'          /* must sit in the same folder as this HTML file */
 };
 
 /* ══════════════════════════════════════════════════════════════
    I18N STORE — every swappable string, English + Kannada.
-   Headings show both scripts permanently and are not in this store.
+   Static headings and name lists use paired .only-en / .only-kn markup instead.
    ══════════════════════════════════════════════════════════════ */
 const I18N = {
   en: {
     skipLink: 'Skip to invitation',
     envInvited: 'You are cordially invited',
     envTap: 'Tap the seal to open',
-    heroPre: 'Together with their families',
-    heroPost: 'request the pleasure of your company as they begin their forever',
-    heroDay: 'Nov',                            /* PLACEHOLDER */
-    heroMonth: '2026',                         /* PLACEHOLDER */
-    heroVenue: 'Palace Grounds, Bengaluru',    /* PLACEHOLDER */
+    heroPre: 'With the blessings of Late Smt. Gangamma & Late Sri Muttaiah',
+    heroPost: 'A warm invitation to you and your family',
+    heroDay: 'Nov',
+    heroMonth: '2026',
+    heroVenue: 'Madhava Mangala Samudaya Bhavana, Shivamogga',
     cdDays: 'Days', cdHours: 'Hours', cdMins: 'Mins', cdSecs: 'Secs',
     cdDone: 'Thank you for celebrating with us',
     scrollCue: 'Scroll',
 
+    verseText: 'A whole human lifetime is one auspicious moment.\nMarriage is a path to walk together, not a house to arrive at.\nWhat keeps husband and wife living as one is love alone —\nlove is the bond.',
+    verseBy: '— Rashtrakavi Kuvempu',
+
     coupleEyebrow: 'Two souls, one journey',
-    brideRole: 'The Bride',
+    couplePoem: 'As two hearts become one,\nand two families unite in this joyous celebration,\nas we walk together through the seven steps of the Saptapadi —\nmay your blessings be with us on our new journey.',
     groomRole: 'The Groom',
-    brideAlt: 'Portrait of Amulya, the bride',
+    brideRole: 'The Bride',
     groomAlt: 'Portrait of Nitin, the groom',
-    brideParents: 'Daughter of Mr. & Mrs. Sharma',   /* PLACEHOLDER */
-    groomParents: 'Son of Mr. & Mrs. Reddy',         /* PLACEHOLDER */
-    brideBio: 'A Bharatanatyam dancer with a laugh that fills every room. She believes every good story begins over a cup of filter coffee.', /* PLACEHOLDER */
-    groomBio: 'An engineer by day and a trekker by heart. He has climbed many peaks, but says meeting Amulya was the finest view of all.',   /* PLACEHOLDER */
+    brideAlt: 'Portrait of Amulya, the bride',
+    groomBio: 'B.E. Computer Science',
+    brideBio: 'B.E. Civil Engineering',
+    groomParents: 'Eldest son of Smt. Yashoda & Sri Venkatesh (Ex-BSF), Mysuru',
+    brideParents: 'Eldest daughter of Smt. Sridevi & Sri Sharanappa Olekara (Retd. Agriculture Officer, Dept. of Agriculture), Shivamogga',
 
     eventsEyebrow: 'Join us for',
-    e1Date: 'Wednesday, 18 November 2026', e1Time: '10:00 AM onwards', e1Venue: 'Sharma Residence, Jayanagar, Bengaluru', e1Dress: 'Dress code: shades of green',
-    e2Date: 'Wednesday, 18 November 2026', e2Time: '4:00 PM', e2Venue: 'Reddy Residence, Malleshwaram, Bengaluru', e2Dress: 'Dress code: sunshine yellow',
-    e3Date: 'Thursday, 19 November 2026', e3Time: 'Muhurtham at 10:30 AM', e3Venue: 'Palace Grounds, Bengaluru', e3Dress: 'Dress code: traditional silk',
-    e4Date: 'Thursday, 19 November 2026', e4Time: '7:00 PM onwards', e4Venue: 'Palace Grounds, Bengaluru', e4Dress: 'Dress code: evening formal',
+    rcDate: 'Wednesday, 18 November 2026', rcTime: '7:30 PM',
+    muDate: 'Thursday, 19 November 2026', muTime: '9:30 AM – 10:30 AM', muLagna: 'Dhanur Lagna',
+    muNote: 'Parabhava Samvatsara · Dakshinayana · Sharad Ritu · Kartika Masa · Shukla Paksha Dashami',
+    evVenue: 'Madhava Mangala Samudaya Bhavana, Shivamogga',
 
     venueEyebrow: 'Where hearts unite',
-    venueAddr: 'Jayamahal Road, Vasanth Nagar, Bengaluru, Karnataka 560052', /* PLACEHOLDER */
-    venueNote: 'Muhurtham 10:30 AM · Lunch to follow',
+    venueAddr: 'Near Delhi World School, Malligenahalli, Sagara Road, Shivamogga',
+    venueNote: 'Reception & Muhurtha both at this venue',
     mapsBtn: 'Open in Google Maps',
     calBtn: 'Add to Calendar',
 
@@ -1061,11 +1129,17 @@ const I18N = {
     galPrev: 'Previous photo', galNext: 'Next photo', lbClose: 'Close',
 
     rsvpEyebrow: 'Kindly respond',
-    rsvpText: 'Your blessings and presence mean the world to us. Kindly confirm by 10 November 2026.', /* PLACEHOLDER */
+    rsvpText: "On this auspicious occasion, we lovingly invite you and your family to attend our children's wedding, bless the newly-wed couple and shower them with your blessings.",
     rsvpBtn: 'RSVP on WhatsApp',
-    rsvpMsg: "Namaste! I'd be delighted to attend Nitin & Amulya's wedding on 18 & 19 November 2026.\nName: \nNumber of guests: ", /* PLACEHOLDER */
+    rsvpMsg: "Namaste! I'd be delighted to attend Nitin & Amulya's wedding (Reception on 18 Nov, Muhurtha on 19 Nov 2026).\nName: \nNumber of guests: ",
 
-    footerNote: 'We look forward to celebrating with you',
+    familiesEyebrow: 'With love from both families',
+    groomSide: "Groom's family",
+    brideSide: "Bride's family",
+    wishersTitle: 'Wishing for your joyful arrival',
+
+    footerNote: 'Your arrival is the only gift we wish for. Your presence is our joy.',
+    footerAddr: 'Malenada Nilaya, Sri Mahalakshmi Drushti Enclave, J.P. Nagar, Mysuru',
     musicPrompt: 'Tap to play music',
     musicPlay: 'Play music', musicPause: 'Pause music'
   },
@@ -1073,34 +1147,38 @@ const I18N = {
     skipLink: 'ಆಹ್ವಾನಕ್ಕೆ ನೇರವಾಗಿ ಹೋಗಿ',
     envInvited: 'ನಿಮಗೆ ಆದರದ ಆಹ್ವಾನ',
     envTap: 'ತೆರೆಯಲು ಮುದ್ರೆಯನ್ನು ಸ್ಪರ್ಶಿಸಿ',
-    heroPre: 'ಕುಟುಂಬಗಳ ಆಶೀರ್ವಾದದೊಂದಿಗೆ',
-    heroPost: 'ತಮ್ಮ ಹೊಸ ಬಾಳಿನ ಆರಂಭಕ್ಕೆ ನಿಮ್ಮನ್ನು ಪ್ರೀತಿಯಿಂದ ಆಹ್ವಾನಿಸುತ್ತಾರೆ',
+    heroPre: 'ದಿ॥ ಶ್ರೀಮತಿ ಗಂಗಮ್ಮ ಮತ್ತು ದಿ॥ ಶ್ರೀ ಮುತ್ತಯ್ಯ ಇವರ ಕೃಪಾಶೀರ್ವಾದಗಳೊಂದಿಗೆ',
+    heroPost: 'ನಿಮಗೂ ಮತ್ತು ನಿಮ್ಮ ಕುಟುಂಬದವರಿಗೂ ಆತ್ಮೀಯ ಆಹ್ವಾನ',
     heroDay: 'ನವೆಂಬರ್',
     heroMonth: '2026',
-    heroVenue: 'ಅರಮನೆ ಮೈದಾನ, ಬೆಂಗಳೂರು',
+    heroVenue: 'ಮಾಧವ ಮಂಗಲ ಸಮುದಾಯ ಭವನ, ಶಿವಮೊಗ್ಗ',
     cdDays: 'ದಿನ', cdHours: 'ಗಂಟೆ', cdMins: 'ನಿಮಿಷ', cdSecs: 'ಸೆಕೆಂಡು',
     cdDone: 'ನಮ್ಮೊಂದಿಗೆ ಸಂಭ್ರಮಿಸಿದ್ದಕ್ಕೆ ಧನ್ಯವಾದಗಳು',
     scrollCue: 'ಮುಂದೆ',
 
+    verseText: 'ಮನುಷ್ಯನ ಜೀವಿತ ಕಾಲವೇ ಒಂದು ಸುಮುಹೂರ್ತ\nವಿವಾಹವು ನಡೆಯುವ ಹಾದಿಯೇ ಹೊರತು ಸೇರುವ ಮನೆಯಲ್ಲ\nಗಂಡ ಹೆಂಡಿರನ್ನು ಒಟ್ಟಿಗೆ ಬದುಕುವಂತೆ ಮಾಡುವ ಸಾಧನ ಪ್ರೀತಿಯೊಂದೇ\n(ಪ್ರೀತಿಯೇ ಬಂಧನ)',
+    verseBy: '— ರಾಷ್ಟ್ರಕವಿ ಕುವೆಂಪು',
+
     coupleEyebrow: 'ಎರಡು ಮನಸ್ಸು, ಒಂದೇ ಪಯಣ',
-    brideRole: 'ವಧು',
+    couplePoem: 'ಎರಡು ಮನಸುಗಳು ಒಂದಾಗಿ,\nಎರಡು ಕುಟುಂಬಗಳು ಒಂದಾಗುವ ಶುಭ ಸಂಭ್ರಮಕ್ಕೆ\nಹಾಗು ಸಪ್ತಪದಿಯೊಂದಿಗೆ ಜೊತೆಯಾಗಿ ನಡೆಯುವ\nನಮ್ಮ ಹೊಸ ಪಯಣಕ್ಕೆ ನಿಮ್ಮ ಶುಭ ಹಾರೈಕೆ ಇರಲಿ.',
     groomRole: 'ವರ',
-    brideAlt: 'ವಧು ಅಮೂಲ್ಯ ಅವರ ಭಾವಚಿತ್ರ',
+    brideRole: 'ವಧು',
     groomAlt: 'ವರ ನಿತಿನ್ ಅವರ ಭಾವಚಿತ್ರ',
-    brideParents: 'ಶ್ರೀ ಮತ್ತು ಶ್ರೀಮತಿ ಶರ್ಮಾ ಅವರ ಪುತ್ರಿ',
-    groomParents: 'ಶ್ರೀ ಮತ್ತು ಶ್ರೀಮತಿ ರೆಡ್ಡಿ ಅವರ ಪುತ್ರ',
-    brideBio: 'ಮನೆ ತುಂಬುವ ನಗುವಿನ ಭರತನಾಟ್ಯ ಕಲಾವಿದೆ. ಪ್ರತಿಯೊಂದು ಒಳ್ಳೆಯ ಕಥೆಯೂ ಒಂದು ಲೋಟ ಫಿಲ್ಟರ್ ಕಾಫಿಯೊಂದಿಗೆ ಆರಂಭವಾಗುತ್ತದೆ ಎಂಬುದು ಅವಳ ನಂಬಿಕೆ.',
-    groomBio: 'ಹಗಲಿನಲ್ಲಿ ಇಂಜಿನಿಯರ್, ಮನಸ್ಸಿನಲ್ಲಿ ಚಾರಣಪ್ರಿಯ. ಹಲವು ಶಿಖರಗಳನ್ನು ಏರಿದ್ದರೂ, ಅಮೂಲ್ಯಳನ್ನು ಭೇಟಿಯಾದದ್ದೇ ಅತ್ಯಂತ ಸುಂದರ ನೋಟ ಎನ್ನುತ್ತಾನೆ.',
+    brideAlt: 'ವಧು ಅಮೂಲ್ಯ ಅವರ ಭಾವಚಿತ್ರ',
+    groomBio: 'ಬಿ.ಇ. (ಕಂಪ್ಯೂಟರ್ ಸೈನ್ಸ್)',
+    brideBio: 'ಬಿ.ಇ. (ಸಿವಿಲ್)',
+    groomParents: 'ಶ್ರೀಮತಿ ಯಶೋದ ಮತ್ತು ಶ್ರೀ ವೆಂಕಟೇಶ್ (ನಿವೃತ್ತ ಬಿ.ಎಸ್.ಎಫ್.), ಮೈಸೂರು ಇವರ ಜ್ಯೇಷ್ಠ ಪುತ್ರ',
+    brideParents: 'ಶ್ರೀಮತಿ ಶ್ರೀದೇವಿ ಮತ್ತು ಶ್ರೀ ಶರಣಪ್ಪ ಓಲೇಕಾರ (ನಿವೃತ್ತ ಕೃಷಿ ಅಧಿಕಾರಿ, ಕೃಷಿ ಇಲಾಖೆ), ಶಿವಮೊಗ್ಗ ಇವರ ಜ್ಯೇಷ್ಠ ಪುತ್ರಿ',
 
     eventsEyebrow: 'ನಮ್ಮೊಂದಿಗೆ ಸಂಭ್ರಮಿಸಿ',
-    e1Date: 'ಬುಧವಾರ, 18 ನವೆಂಬರ್ 2026', e1Time: 'ಬೆಳಿಗ್ಗೆ 10:00 ರಿಂದ', e1Venue: 'ಶರ್ಮಾ ನಿವಾಸ, ಜಯನಗರ, ಬೆಂಗಳೂರು', e1Dress: 'ಉಡುಗೆ: ಹಸಿರು ಛಾಯೆಗಳು',
-    e2Date: 'ಬುಧವಾರ, 18 ನವೆಂಬರ್ 2026', e2Time: 'ಸಂಜೆ 4:00', e2Venue: 'ರೆಡ್ಡಿ ನಿವಾಸ, ಮಲ್ಲೇಶ್ವರಂ, ಬೆಂಗಳೂರು', e2Dress: 'ಉಡುಗೆ: ಹಳದಿ ಬಣ್ಣ',
-    e3Date: 'ಗುರುವಾರ, 19 ನವೆಂಬರ್ 2026', e3Time: 'ಶುಭ ಮುಹೂರ್ತ ಬೆಳಿಗ್ಗೆ 10:30', e3Venue: 'ಅರಮನೆ ಮೈದಾನ, ಬೆಂಗಳೂರು', e3Dress: 'ಉಡುಗೆ: ಸಾಂಪ್ರದಾಯಿಕ ರೇಷ್ಮೆ',
-    e4Date: 'ಗುರುವಾರ, 19 ನವೆಂಬರ್ 2026', e4Time: 'ಸಂಜೆ 7:00 ರಿಂದ', e4Venue: 'ಅರಮನೆ ಮೈದಾನ, ಬೆಂಗಳೂರು', e4Dress: 'ಉಡುಗೆ: ಸಂಜೆಯ ಔಪಚಾರಿಕ ಉಡುಗೆ',
+    rcDate: 'ಬುಧವಾರ, 18 ನವೆಂಬರ್ 2026', rcTime: 'ಸಂಜೆ 7:30ಕ್ಕೆ',
+    muDate: 'ಗುರುವಾರ, 19 ನವೆಂಬರ್ 2026', muTime: 'ಬೆಳಿಗ್ಗೆ 9:30 ರಿಂದ 10:30 ರವರೆಗೆ', muLagna: 'ಲಗ್ನ: ಧನುರ್',
+    muNote: 'ಶ್ರೀ ಪರಾಭವನಾಮ ಸಂವತ್ಸರ · ದಕ್ಷಿಣಾಯನ · ಶರದೃತು · ಕಾರ್ತಿಕ ಮಾಸ · ಶುಕ್ಲ ಪಕ್ಷ ದಶಮಿ',
+    evVenue: 'ಮಾಧವ ಮಂಗಲ ಸಮುದಾಯ ಭವನ, ಶಿವಮೊಗ್ಗ',
 
     venueEyebrow: 'ಮನಸುಗಳು ಒಂದಾಗುವ ತಾಣ',
-    venueAddr: 'ಜಯಮಹಲ್ ರಸ್ತೆ, ವಸಂತನಗರ, ಬೆಂಗಳೂರು, ಕರ್ನಾಟಕ 560052',
-    venueNote: 'ಶುಭ ಮುಹೂರ್ತ ಬೆಳಿಗ್ಗೆ 10:30 · ನಂತರ ಭೋಜನ',
+    venueAddr: 'ಡೆಲ್ಲಿ ವರ್ಲ್ಡ್ ಸ್ಕೂಲ್ ಹತ್ತಿರ, ಮಲ್ಲಿಗೆನಹಳ್ಳಿ, ಸಾಗರ ರಸ್ತೆ, ಶಿವಮೊಗ್ಗ',
+    venueNote: 'ಆರತಕ್ಷತೆ ಮತ್ತು ಧಾರಾಮುಹೂರ್ತ ಎರಡೂ ಇಲ್ಲಿಯೇ',
     mapsBtn: 'ಗೂಗಲ್ ಮ್ಯಾಪ್ಸ್‌ನಲ್ಲಿ ತೆರೆಯಿರಿ',
     calBtn: 'ಕ್ಯಾಲೆಂಡರ್‌ಗೆ ಸೇರಿಸಿ',
 
@@ -1109,11 +1187,17 @@ const I18N = {
     galPrev: 'ಹಿಂದಿನ ಚಿತ್ರ', galNext: 'ಮುಂದಿನ ಚಿತ್ರ', lbClose: 'ಮುಚ್ಚಿ',
 
     rsvpEyebrow: 'ದಯವಿಟ್ಟು ತಿಳಿಸಿ',
-    rsvpText: 'ನಿಮ್ಮ ಆಶೀರ್ವಾದ ಮತ್ತು ಉಪಸ್ಥಿತಿ ನಮಗೆ ಅಮೂಲ್ಯ. ದಯವಿಟ್ಟು 10 ನವೆಂಬರ್ 2026 ರೊಳಗೆ ತಿಳಿಸಿ.',
+    rsvpText: 'ಈ ಶುಭ ಸಂದರ್ಭದಲ್ಲಿ ನಮ್ಮ ಮಕ್ಕಳ ವಿವಾಹ ಮಹೋತ್ಸವಕ್ಕೆ ತಾವು ಕುಟುಂಬ ಸಮೇತರಾಗಿ ಆಗಮಿಸಿ, ನವಜೋಡಿಗೆ ಶುಭ ಹಾರೈಸಿ, ತಮ್ಮ ಆಶೀರ್ವಾದವನ್ನು ನೀಡಬೇಕೆಂದು ಪ್ರೀತಿಪೂರ್ವಕವಾಗಿ ಆಹ್ವಾನಿಸುತ್ತೇವೆ.',
     rsvpBtn: 'ವಾಟ್ಸಾಪ್‌ನಲ್ಲಿ ಉತ್ತರಿಸಿ',
-    rsvpMsg: 'ನಮಸ್ಕಾರ! 18 ಮತ್ತು 19 ನವೆಂಬರ್ 2026 ರಂದು ನಿತಿನ್ ಮತ್ತು ಅಮೂಲ್ಯ ಅವರ ವಿವಾಹಕ್ಕೆ ಬರಲು ಸಂತೋಷಪಡುತ್ತೇನೆ.\nಹೆಸರು: \nಅತಿಥಿಗಳ ಸಂಖ್ಯೆ: ',
+    rsvpMsg: 'ನಮಸ್ಕಾರ! ನಿತಿನ್ ಮತ್ತು ಅಮೂಲ್ಯ ಅವರ ವಿವಾಹಕ್ಕೆ (18 ನವೆಂಬರ್ ಆರತಕ್ಷತೆ, 19 ನವೆಂಬರ್ 2026 ಧಾರಾಮುಹೂರ್ತ) ಬರಲು ಸಂತೋಷಪಡುತ್ತೇನೆ.\nಹೆಸರು: \nಅತಿಥಿಗಳ ಸಂಖ್ಯೆ: ',
 
-    footerNote: 'ನಿಮ್ಮೊಂದಿಗೆ ಸಂಭ್ರಮಿಸಲು ಕಾತರರಾಗಿದ್ದೇವೆ',
+    familiesEyebrow: 'ಎರಡೂ ಕುಟುಂಬಗಳ ಪರವಾಗಿ',
+    groomSide: 'ವರನ ಕಡೆಯಿಂದ',
+    brideSide: 'ವಧುವಿನ ಕಡೆಯಿಂದ',
+    wishersTitle: 'ತಮ್ಮ ಸುಖಾಗಮನವನ್ನು ಬಯಸುವವರು',
+
+    footerNote: 'ತಮ್ಮ ಆಗಮನವನ್ನೇ ಉಡುಗೊರೆಯೆಂದು ಭಾವಿಸುತ್ತೇವೆ. ನಿಮ್ಮ ಉಪಸ್ಥಿತಿಯೇ ನಮ್ಮ ಸಂತೋಷ.',
+    footerAddr: 'ಮಲೆನಾಡ ನಿಲಯ, ಶ್ರೀ ಮಹಾಲಕ್ಷ್ಮಿ ದೃಷ್ಟಿ ಎನ್‌ಕ್ಲೇವ್, ಜೆ. ಪಿ. ನಗರ, ಮೈಸೂರು',
     musicPrompt: 'ಸಂಗೀತ ಕೇಳಲು ಸ್ಪರ್ಶಿಸಿ',
     musicPlay: 'ಸಂಗೀತ ಆರಂಭಿಸಿ', musicPause: 'ಸಂಗೀತ ನಿಲ್ಲಿಸಿ'
   }
