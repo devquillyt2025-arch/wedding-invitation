@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="kn">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
@@ -105,6 +105,32 @@ button{font:inherit;color:inherit;cursor:pointer;-webkit-tap-highlight-color:tra
 body.lang-kn [data-i18n]{font-family:var(--f-kn);font-style:normal;letter-spacing:0;text-transform:none;font-size:.92em;line-height:1.85}
 [data-i18n]{transition:opacity .2s ease}
 body.swapping [data-i18n]{opacity:0}
+
+/* One language at a time (no JS → English) */
+body:not(.lang-kn) .t-kn,body:not(.lang-kn) .only-kn{display:none!important}
+body.lang-kn .t-en,body.lang-kn .only-en{display:none!important}
+
+/* Kannada mode: Kannada text takes the primary heading role */
+body.lang-kn .sec-title .t-kn{margin-top:0;font-size:clamp(1.9rem,7vw,3rem);line-height:1.45}
+body.lang-kn .ev-title .t-kn{margin-top:0;font-size:clamp(1.5rem,5vw,1.8rem);line-height:1.45}
+body.lang-kn .venue-name .t-kn{margin-top:0;font-size:clamp(1.8rem,6.5vw,2.4rem);line-height:1.45}
+body.lang-kn .save .t-kn{font-size:clamp(1.25rem,4.5vw,1.5rem);line-height:1.5}
+body.lang-kn .p-name .kn{margin:4px 0 0;font-size:clamp(1.7rem,6.5vw,2.1rem);line-height:1.5}
+body.lang-kn .family .t-kn{margin-top:0;color:var(--gold-hi)}
+body.lang-kn .names .n-kn{
+  flex-direction:column;gap:.1em;margin-top:0;font-family:var(--f-kn-deco);font-weight:400;
+  font-size:clamp(3rem,13vw,5.2rem);line-height:1.35;
+}
+body.lang-kn .names .n-kn svg{width:.28em;height:.28em}
+.env-title .t2.only-kn{font-family:var(--f-kn-deco);font-size:clamp(2.1rem,8.5vw,3rem);line-height:1.4}
+body.lang-kn .c-kn{font-family:var(--f-kn-deco);font-size:26px;font-size:7.4cqw;font-weight:400;line-height:1.4;color:var(--maroon)}
+body.lang-kn .sec-title .t-kn,body.lang-kn .ev-title .t-kn,body.lang-kn .venue-name .t-kn,
+body.lang-kn .save .t-kn,body.lang-kn .p-name .kn,body.lang-kn .names .n-kn{
+  background:linear-gradient(110deg,var(--gold) 0%,var(--gold) 38%,#FFF4CF 50%,var(--gold-hi) 54%,var(--gold) 64%,var(--gold) 100%);
+  background-size:260% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;
+  animation:sweep 6s ease-in-out infinite;
+}
+@media (min-width:640px){body.lang-kn .names .n-kn{flex-direction:row;gap:.35em}}
 
 /* Gold shimmer sweep */
 .shimmer{
@@ -620,7 +646,10 @@ body.lang-kn .p-meta [data-i18n]{line-height:1.5}
 </head>
 
 <body>
-<a class="sr-only" href="#home">Skip to invitation</a>
+<script>/* apply language before first paint; Kannada is the default */
+try { if (localStorage.getItem('invite-lang') !== 'en') document.body.classList.add('lang-kn'); }
+catch (e) { document.body.classList.add('lang-kn'); }</script>
+<a class="sr-only" href="#home" data-i18n="skipLink">Skip to invitation</a>
 
 <!-- ═══ SVG SPRITE (icons + ornaments) ═══ -->
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
@@ -661,17 +690,19 @@ body.lang-kn .p-meta [data-i18n]{line-height:1.5}
   <p class="env-title">
     <span class="t1" data-i18n="envInvited">You are cordially invited</span>
     <!-- PLACEHOLDER: couple names -->
-    <span class="t2 shimmer">Nitin &amp; Amulya</span>
+    <span class="t2 shimmer only-en">Nitin &amp; Amulya</span>
+    <span class="t2 shimmer only-kn" lang="kn">ನಿತಿನ್ ಮತ್ತು ಅಮೂಲ್ಯ</span>
   </p>
   <div class="env-stage">
     <button type="button" class="envelope" id="envBtn" aria-label="Open the invitation">
       <span class="env-back"></span>
       <span class="env-card">
         <span class="card-in">
-          <span class="c-small kn">॥ ಶುಭ ವಿವಾಹ ॥</span>
+          <span class="c-small only-en">Shubha Vivaha</span>
+          <span class="c-small kn only-kn" lang="kn">॥ ಶುಭ ವಿವಾಹ ॥</span>
           <!-- PLACEHOLDER: couple names + date -->
-          <span class="c-names">Nitin &amp; Amulya</span>
-          <span class="c-kn kn">ನಿತಿನ್ · ಅಮೂಲ್ಯ</span>
+          <span class="c-names only-en">Nitin &amp; Amulya</span>
+          <span class="c-kn kn only-kn" lang="kn">ನಿತಿನ್ · ಅಮೂಲ್ಯ</span>
           <span class="c-date">18 &amp; 19 · 11 · 2026</span>
         </span>
       </span>
@@ -720,14 +751,14 @@ body.lang-kn .p-meta [data-i18n]{line-height:1.5}
 
   <div class="hero-inner">
     <!-- PLACEHOLDER: invocation (optional – remove if not wanted) -->
-    <p class="invocation kn h-anim" style="--d:.05s">॥ ಶ್ರೀ ಗಣೇಶಾಯ ನಮಃ ॥</p>
+    <p class="invocation h-anim" style="--d:.05s"><span class="only-en">॥ Shri Ganeshaya Namah ॥</span><span class="kn only-kn" lang="kn">॥ ಶ್ರೀ ಗಣೇಶಾಯ ನಮಃ ॥</span></p>
     <p class="eyebrow h-anim" style="--d:.2s"><span data-i18n="heroPre">Together with their families</span></p>
 
     <h1 class="names h-anim" id="heroNames" style="--d:.4s">
       <!-- PLACEHOLDER: bride & groom names (English) -->
-      <span class="n-en"><span class="shimmer">Nitin</span><span class="amp">&amp;</span><span class="shimmer">Amulya</span></span>
+      <span class="n-en only-en"><span class="shimmer">Nitin</span><span class="amp">&amp;</span><span class="shimmer">Amulya</span></span>
       <!-- PLACEHOLDER: bride & groom names (Kannada) -->
-      <span class="n-kn kn" lang="kn">ನಿತಿನ್ <svg viewBox="0 0 10 10" aria-hidden="true"><use href="#i-diamond"/></svg> ಅಮೂಲ್ಯ</span>
+      <span class="n-kn kn only-kn" lang="kn">ನಿತಿನ್ <svg viewBox="0 0 10 10" aria-hidden="true"><use href="#i-diamond"/></svg> ಅಮೂಲ್ಯ</span>
     </h1>
 
     <p class="hero-sub h-anim" style="--d:.6s"><span data-i18n="heroPost">request the pleasure of your company as they begin their forever</span></p>
@@ -776,13 +807,13 @@ body.lang-kn .p-meta [data-i18n]{line-height:1.5}
       </div>
       <p class="role"><span data-i18n="brideRole">The Bride</span></p>
       <!-- PLACEHOLDER: bride name -->
-      <h3 class="p-name"><span class="script shimmer">Amulya K S</span><span class="kn" lang="kn">ಚಿ॥ ಸೌ॥ ಅಮೂಲ್ಯ ಕೆ. ಎಸ್.</span></h3>
+      <h3 class="p-name"><span class="script shimmer only-en">Amulya K S</span><span class="kn only-kn" lang="kn">ಚಿ॥ ಸೌ॥ ಅಮೂಲ್ಯ ಕೆ. ಎಸ್.</span></h3>
       <!-- PLACEHOLDER: bride parents + bio -->
       <p class="parents"><span data-i18n="brideParents">Daughter of Mr. &amp; Mrs. Sharma</span></p>
       <p class="bio"><span data-i18n="brideBio">A Bharatanatyam dancer with a laugh that fills every room. She believes every good story begins over a cup of filter coffee.</span></p>
     </article>
 
-    <div class="couple-amp reveal" style="--d:.15s" aria-hidden="true">&amp;</div>
+    <div class="couple-amp reveal only-en" style="--d:.15s" aria-hidden="true">&amp;</div>
 
     <article class="person reveal" style="--d:.25s">
       <div class="frame">
@@ -791,7 +822,7 @@ body.lang-kn .p-meta [data-i18n]{line-height:1.5}
       </div>
       <p class="role"><span data-i18n="groomRole">The Groom</span></p>
       <!-- PLACEHOLDER: groom name -->
-      <h3 class="p-name"><span class="script shimmer">Nitin V</span><span class="kn" lang="kn">ಚಿ॥ ನಿತಿನ್ ವಿ.</span></h3>
+      <h3 class="p-name"><span class="script shimmer only-en">Nitin V</span><span class="kn only-kn" lang="kn">ಚಿ॥ ನಿತಿನ್ ವಿ.</span></h3>
       <!-- PLACEHOLDER: groom parents + bio -->
       <p class="parents"><span data-i18n="groomParents">Son of Mr. &amp; Mrs. Reddy</span></p>
       <p class="bio"><span data-i18n="groomBio">An engineer by day and a trekker by heart. He has climbed many peaks, but says meeting Amulya was the finest view of all.</span></p>
@@ -940,13 +971,13 @@ body.lang-kn .p-meta [data-i18n]{line-height:1.5}
 <!-- ═══ 7. FOOTER ═══ -->
 <footer class="footer">
   <svg class="orn" aria-hidden="true"><use href="#orn"/></svg>
-  <span class="with shimmer">With love,</span>
-  <span class="with-kn" lang="kn">ಪ್ರೀತಿಯಿಂದ</span>
+  <span class="with shimmer only-en">With love,</span>
+  <span class="with-kn only-kn" lang="kn">ಪ್ರೀತಿಯಿಂದ</span>
   <!-- PLACEHOLDER: family name -->
   <p class="family"><span class="t-en">The Sharma &amp; Reddy Families</span><span class="t-kn" lang="kn">ಶರ್ಮಾ ಮತ್ತು ರೆಡ್ಡಿ ಕುಟುಂಬಗಳು</span></p>
   <p class="footer-note"><span data-i18n="footerNote">We look forward to celebrating with you</span></p>
   <!-- PLACEHOLDER: wedding hashtag -->
-  <span class="hashtag">#NitinWedsAmulya</span>
+  <span class="hashtag only-en">#NitinWedsAmulya</span><span class="hashtag only-kn" lang="kn">#ನಿತಿನ್_ಅಮೂಲ್ಯ</span>
 </footer>
 
 <!-- ═══ PHOTO LIGHTBOX ═══ -->
@@ -996,6 +1027,7 @@ const CONFIG = {
    ══════════════════════════════════════════════════════════════ */
 const I18N = {
   en: {
+    skipLink: 'Skip to invitation',
     envInvited: 'You are cordially invited',
     envTap: 'Tap the seal to open',
     heroPre: 'Together with their families',
@@ -1045,6 +1077,7 @@ const I18N = {
     musicPlay: 'Play music', musicPause: 'Pause music'
   },
   kn: {
+    skipLink: 'ಆಹ್ವಾನಕ್ಕೆ ನೇರವಾಗಿ ಹೋಗಿ',
     envInvited: 'ನಿಮಗೆ ಆದರದ ಆಹ್ವಾನ',
     envTap: 'ತೆರೆಯಲು ಮುದ್ರೆಯನ್ನು ಸ್ಪರ್ಶಿಸಿ',
     heroPre: 'ಕುಟುಂಬಗಳ ಆಶೀರ್ವಾದದೊಂದಿಗೆ',
@@ -1105,7 +1138,7 @@ const store = {
 };
 
 /* ─── Language ─── */
-let lang = store.get('invite-lang') === 'kn' ? 'kn' : 'en';
+let lang = store.get('invite-lang') === 'en' ? 'en' : 'kn';   // Kannada is the default
 const t = key => I18N[lang][key] ?? I18N.en[key] ?? '';
 
 function applyLang() {
