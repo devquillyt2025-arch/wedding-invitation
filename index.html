@@ -88,7 +88,7 @@ body{
     radial-gradient(rgba(201,168,76,.075) 1px, transparent 1.6px),
     linear-gradient(180deg,#0B1020 0%,#0F1631 35%,#0C1226 70%,#0B1020 100%);
   background-size:26px 26px,100% 100%;
-  padding-bottom:calc(96px + var(--safe-b));
+  padding-bottom:calc(24px + var(--safe-b));
   font-variant-numeric:lining-nums;
   -webkit-font-smoothing:antialiased;
   touch-action:manipulation;
@@ -573,13 +573,19 @@ html.lb-lock,html.lb-lock body{overflow:hidden}
    MUSIC
    ═══════════════════════════════════════════════════ */
 .player{
-  position:fixed;left:50%;bottom:calc(12px + var(--safe-b));z-index:var(--z-player);
-  display:flex;align-items:center;gap:14px;padding:6px 20px 6px 6px;border-radius:999px;
+  position:fixed;right:calc(16px + env(safe-area-inset-right, 0px));bottom:calc(16px + var(--safe-b));z-index:var(--z-player);
+  width:60px;height:60px;display:grid;place-items:center;border-radius:50%;
   background:rgba(12,17,36,.82);border:1px solid var(--gold-a45);
-  -webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);box-shadow:0 12px 30px rgba(0,0,0,.45);
-  transform:translate(-50%,0);transition:transform .6s var(--ease),opacity .6s ease;
+  -webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);box-shadow:0 10px 26px rgba(0,0,0,.45);
+  transition:transform .6s var(--ease),opacity .6s ease;
 }
-html.locked .player{transform:translate(-50%,140%);opacity:0}
+/* spinning dashed ring while music plays */
+.player::before{
+  content:'';position:absolute;inset:-6px;border-radius:50%;border:1.5px dashed var(--gold);
+  opacity:0;transition:opacity .4s ease;pointer-events:none;
+}
+.player.playing::before{opacity:.8;animation:spin 8s linear infinite}
+html.locked .player{transform:translateY(140%);opacity:0}
 .p-btn{
   width:48px;height:48px;flex:0 0 auto;border-radius:50%;border:0;display:grid;place-items:center;
   background:linear-gradient(135deg,var(--gold-hi),var(--gold) 60%,var(--gold-lo));color:var(--ink);
@@ -589,25 +595,20 @@ html.locked .player{transform:translate(-50%,140%);opacity:0}
 .p-btn .i-pause{display:none}
 .player.playing .p-btn .i-play{display:none}
 .player.playing .p-btn .i-pause{display:block}
-.eq{display:flex;align-items:flex-end;gap:3px;height:20px}
-.eq i{width:3px;height:100%;border-radius:2px;background:var(--gold);transform-origin:50% 100%;transform:scaleY(.25)}
-.player.playing .eq i{animation:eq 1s ease-in-out infinite alternate}
-.eq i:nth-child(2){animation-delay:-.4s!important}
-.eq i:nth-child(3){animation-delay:-.7s!important}
-.eq i:nth-child(4){animation-delay:-.2s!important}
-@keyframes eq{0%{transform:scaleY(.2)}100%{transform:scaleY(1)}}
 
 .music-prompt{
-  position:fixed;left:50%;bottom:calc(84px + var(--safe-b));z-index:var(--z-player);
+  position:fixed;right:calc(16px + env(safe-area-inset-right, 0px));bottom:calc(92px + var(--safe-b));z-index:var(--z-player);
   display:inline-flex;align-items:center;gap:10px;min-height:48px;padding:0 20px;border-radius:999px;
   border:1px solid var(--gold-a45);background:rgba(122,30,44,.9);color:var(--cream);font-size:1rem;font-weight:600;
   box-shadow:0 10px 26px rgba(0,0,0,.4);white-space:nowrap;
-  transform:translate(-50%,16px);opacity:0;visibility:hidden;
+  transform:translateY(16px);opacity:0;visibility:hidden;
   transition:transform .45s var(--ease),opacity .35s ease,visibility 0s linear .45s;
 }
-.music-prompt.show{transform:translate(-50%,0);opacity:1;visibility:visible;transition:transform .45s var(--ease),opacity .35s ease;animation:nudge 2.4s ease-in-out .6s infinite}
+/* little pointer toward the button */
+.music-prompt::after{content:'';position:absolute;right:24px;bottom:-6px;width:10px;height:10px;background:inherit;border-right:1px solid var(--gold-a45);border-bottom:1px solid var(--gold-a45);transform:rotate(45deg)}
+.music-prompt.show{transform:none;opacity:1;visibility:visible;transition:transform .45s var(--ease),opacity .35s ease;animation:nudge 2.4s ease-in-out .6s infinite}
 .music-prompt .ic{color:var(--gold-hi)}
-@keyframes nudge{0%,100%{transform:translate(-50%,0)}50%{transform:translate(-50%,-5px)}}
+@keyframes nudge{0%,100%{transform:none}50%{transform:translateY(-5px)}}
 
 /* ═══════════════════════════════════════════════════
    PETALS
@@ -1060,7 +1061,6 @@ catch (e) { document.body.classList.add('lang-kn'); }</script>
   <button type="button" class="p-btn" id="playBtn" aria-pressed="false" data-i18n-aria="musicPlay" aria-label="Play music">
     <svg class="ic i-play"><use href="#i-play"/></svg><svg class="ic i-pause"><use href="#i-pause"/></svg>
   </button>
-  <span class="eq" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
 </div>
 
 <script>
