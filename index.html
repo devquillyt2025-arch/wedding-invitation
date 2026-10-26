@@ -544,7 +544,7 @@ html.lb-lock,html.lb-lock body{overflow:hidden}
    ═══════════════════════════════════════════════════ */
 .player{
   position:fixed;left:50%;bottom:calc(12px + var(--safe-b));z-index:var(--z-player);
-  width:min(calc(100vw - 32px),360px);display:flex;align-items:center;gap:12px;padding:6px 18px 6px 6px;border-radius:999px;
+  display:flex;align-items:center;gap:14px;padding:6px 20px 6px 6px;border-radius:999px;
   background:rgba(12,17,36,.82);border:1px solid var(--gold-a45);
   -webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);box-shadow:0 12px 30px rgba(0,0,0,.45);
   transform:translate(-50%,0);transition:transform .6s var(--ease),opacity .6s ease;
@@ -559,10 +559,6 @@ html.locked .player{transform:translate(-50%,140%);opacity:0}
 .p-btn .i-pause{display:none}
 .player.playing .p-btn .i-play{display:none}
 .player.playing .p-btn .i-pause{display:block}
-.p-meta{min-width:0;flex:1;line-height:1.25}
-.p-title{display:block;font-weight:600;font-size:1.05rem;color:var(--cream);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.p-sub{display:block;font-size:.85rem;color:var(--cream-3)}
-body.lang-kn .p-meta [data-i18n]{line-height:1.5}
 .eq{display:flex;align-items:flex-end;gap:3px;height:20px}
 .eq i{width:3px;height:100%;border-radius:2px;background:var(--gold);transform-origin:50% 100%;transform:scaleY(.25)}
 .player.playing .eq i{animation:eq 1s ease-in-out infinite alternate}
@@ -999,7 +995,6 @@ catch (e) { document.body.classList.add('lang-kn'); }</script>
   <button type="button" class="p-btn" id="playBtn" aria-pressed="false" data-i18n-aria="musicPlay" aria-label="Play music">
     <svg class="ic i-play"><use href="#i-play"/></svg><svg class="ic i-pause"><use href="#i-pause"/></svg>
   </button>
-  <span class="p-meta"><span class="p-title" data-i18n="musicTitle">Wedding Theme</span><span class="p-sub" data-i18n="musicSub">Madarangi</span></span>
   <span class="eq" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
 </div>
 
@@ -1071,8 +1066,6 @@ const I18N = {
     rsvpMsg: "Namaste! I'd be delighted to attend Nitin & Amulya's wedding on 18 & 19 November 2026.\nName: \nNumber of guests: ", /* PLACEHOLDER */
 
     footerNote: 'We look forward to celebrating with you',
-    musicTitle: 'Wedding Theme',
-    musicSub: 'Madarangi',
     musicPrompt: 'Tap to play music',
     musicPlay: 'Play music', musicPause: 'Pause music'
   },
@@ -1121,8 +1114,6 @@ const I18N = {
     rsvpMsg: 'ನಮಸ್ಕಾರ! 18 ಮತ್ತು 19 ನವೆಂಬರ್ 2026 ರಂದು ನಿತಿನ್ ಮತ್ತು ಅಮೂಲ್ಯ ಅವರ ವಿವಾಹಕ್ಕೆ ಬರಲು ಸಂತೋಷಪಡುತ್ತೇನೆ.\nಹೆಸರು: \nಅತಿಥಿಗಳ ಸಂಖ್ಯೆ: ',
 
     footerNote: 'ನಿಮ್ಮೊಂದಿಗೆ ಸಂಭ್ರಮಿಸಲು ಕಾತರರಾಗಿದ್ದೇವೆ',
-    musicTitle: 'ವಿವಾಹ ಸಂಗೀತ',
-    musicSub: 'ಮದರಂಗಿ',
     musicPrompt: 'ಸಂಗೀತ ಕೇಳಲು ಸ್ಪರ್ಶಿಸಿ',
     musicPlay: 'ಸಂಗೀತ ಆರಂಭಿಸಿ', musicPause: 'ಸಂಗೀತ ನಿಲ್ಲಿಸಿ'
   }
