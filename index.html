@@ -959,7 +959,7 @@ catch (e) { document.body.classList.add('lang-kn'); }</script>
     <h2 class="sec-title" id="rsvpTitle"><span class="t-en shimmer">We'd Love to See You There</span><span class="t-kn kn" lang="kn">ನಿಮ್ಮ ಆಗಮನವನ್ನು ಎದುರು ನೋಡುತ್ತಿದ್ದೇವೆ</span></h2>
     <p class="rsvp-text" style="margin-top:20px"><span data-i18n="rsvpText">Your blessings and presence mean the world to us. Kindly confirm by 10 November 2026.</span></p>
     <!-- PLACEHOLDER: WhatsApp number is set in CONFIG.whatsapp in the script below -->
-    <a class="btn-seal" id="rsvpBtn" href="https://wa.me/919999999999" target="_blank" rel="noopener">
+    <a class="btn-seal" id="rsvpBtn" href="https://wa.me/918951813296" target="_blank" rel="noopener">
       <span class="seal-dot" aria-hidden="true"><svg class="ic"><use href="#i-chat"/></svg></span>
       <span data-i18n="rsvpBtn">RSVP on WhatsApp</span>
     </a>
@@ -1013,7 +1013,7 @@ catch (e) { document.body.classList.add('lang-kn'); }</script>
 const CONFIG = {
   weddingStart: '2026-11-19T10:30:00+05:30', /* PLACEHOLDER: muhurtham, IST */
   weddingHours: 4,                           /* length of the calendar event */
-  whatsapp: '919999999999',                  /* PLACEHOLDER: country code + number, digits only */
+  whatsapp: '918951813296',                  /* country code + number, digits only */
   calendarTitle: 'Nitin & Amulya — Wedding',  /* PLACEHOLDER */
   calendarPlace: 'Palace Grounds, Jayamahal Road, Bengaluru 560052', /* PLACEHOLDER */
   /* Optional: path/URL to your own MP3 (e.g. 'music/nadaswaram.mp3').
@@ -1356,12 +1356,20 @@ const Music = (() => {
     master.gain.setValueAtTime(master.gain.value, now);
     master.gain.linearRampToValueAtTime(.6, now + 3.5);
     emit();
+    // Without a user gesture the context stays suspended → report not playing so the first tap retries
+    setTimeout(() => { if (playing && ctx.state !== 'running') { clearInterval(timer); playing = false; emit(); } }, 400);
   }
   function pause() {
     if (!playing) return;
     playing = false; emit();
-    if (useFile && audio) { fadeFile(0, 600, () => { if (!playing) audio.pause(); }); return; }
+    // Hidden tabs don't run animation frames, so a fade would never finish there: stop at once
+    if (useFile && audio) {
+      if (document.hidden) { cancelAnimationFrame(fadeRaf); audio.pause(); }
+      else fadeFile(0, 600, () => { if (!playing) audio.pause(); });
+      return;
+    }
     clearInterval(timer);
+    if (document.hidden) { ctx.suspend(); return; }
     const now = ctx.currentTime;
     master.gain.cancelScheduledValues(now);
     master.gain.setValueAtTime(master.gain.value, now);
@@ -1391,13 +1399,26 @@ Music.on(isPlaying => {
   playBtn.setAttribute('aria-label', t(playBtn.dataset.i18nAria));
   if (isPlaying) hidePrompt();
 });
-playBtn.addEventListener('click', () => Music.toggle());
-prompt.addEventListener('click', () => Music.play());
+let userPaused = false;                         // a guest who pauses stays paused
+playBtn.addEventListener('click', () => { userPaused = Music.playing; Music.toggle(); });
+prompt.addEventListener('click', () => { userPaused = false; Music.play(); });
+
+// Autoplay: try right away; browsers that block sound until a gesture get it on the first tap/click/key anywhere
+const UNLOCK = ['pointerdown', 'pointerup', 'touchend', 'click', 'keydown'];
+function unlock(e) {
+  if (e.target.closest && e.target.closest('#player, #musicPrompt')) return;   // these handle music themselves
+  if (!Music.playing && !userPaused && !document.hidden) Music.play();
+}
+UNLOCK.forEach(ev => document.addEventListener(ev, unlock, true));
+Music.play();
+
+// Stop when the guest leaves (app switch, tab change, closing); resume when they come back
 let resumeOnShow = false;
-document.addEventListener('visibilitychange', () => {
-  if (document.hidden && Music.playing) { resumeOnShow = true; Music.pause(); }
-  else if (!document.hidden && resumeOnShow) { resumeOnShow = false; Music.play(); }
-});
+function leave() { if (Music.playing) { resumeOnShow = true; Music.pause(); } }
+function back() { if (resumeOnShow && !userPaused) { resumeOnShow = false; Music.play(); } }
+document.addEventListener('visibilitychange', () => { document.hidden ? leave() : back(); });
+addEventListener('pagehide', leave);
+addEventListener('pageshow', e => { if (e.persisted) back(); });
 
 /* ─── Petals (canvas) ─── */
 const Petals = (() => {
@@ -1488,14 +1509,14 @@ const Petals = (() => {
   function open(byTap) {
     if (opened) return;
     opened = true;
-    if (byTap) Music.play();          // a tap is a user gesture, so audio may start
+    if (byTap && !userPaused) Music.play();   // a tap is a user gesture, so audio may start
     if (reduce) { overlay.classList.add('s-done'); setTimeout(finish, 350); return; }
     const steps = [[0, 's-crack'], [800, 's-open'], [1650, 's-rise'], [2900, 's-done']];
     steps.forEach(([ms, cls]) => setTimeout(() => overlay.classList.add(cls), ms));
     setTimeout(finish, 3800);
   }
-  btn.addEventListener('click', () => open(true));
-  setTimeout(() => open(false), reduce ? 800 : 3200);   // opens on its own if nobody taps
+  // Opening waits for a tap anywhere on the intro screen: that tap is what lets the music start on phones
+  overlay.addEventListener('click', () => open(true));
 })();
 
 /* ─── Scroll reveal ─── */
