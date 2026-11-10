@@ -37,6 +37,7 @@
 <link rel="stylesheet" href="css/intro.css">
 <link rel="stylesheet" href="css/hero.css">
 <link rel="stylesheet" href="css/sections.css">
+<link rel="stylesheet" href="css/calendar.css">
 
 <noscript><style>
   /* without JavaScript the gates can't be scrolled open, so show the venue directly */
@@ -298,6 +299,65 @@ catch (e) { document.body.classList.add('lang-kn'); }</script>
         </article>
       </li>
     </ol>
+  </div>
+</section>
+
+<!-- ═══ 3b. SAVE THE DATE — tear-off wall calendar ═══ -->
+<section class="section cal-sec" id="savedate" aria-labelledby="savedateTitle">
+  <header class="sec-head" data-rv="title">
+    <p class="eyebrow"><span data-i18n="calEyebrow">Mark your calendar</span></p>
+    <svg class="orn" aria-hidden="true"><use href="#orn"/></svg>
+    <h2 class="sec-title" id="savedateTitle"><span class="t-en shimmer">Save the Date</span><span class="t-kn kn" lang="kn">ದಿನಾಂಕ ಕಾಯ್ದಿರಿಸಿ</span></h2>
+  </header>
+
+  <div class="cal-wrap tilt-wrap" data-rv="up">
+    <div class="cal tilt" id="calCard" data-tilt="7" role="img" data-i18n-aria="calAria" aria-label="Calendar for November 2026 with 18 and 19 November marked">
+      <svg class="cal-cord" viewBox="0 0 100 60" preserveAspectRatio="none" aria-hidden="true"><line x1="50" y1="6" x2="12" y2="60" vector-effect="non-scaling-stroke"/><line x1="50" y1="6" x2="88" y2="60" vector-effect="non-scaling-stroke"/></svg>
+      <span class="cal-nail" aria-hidden="true"></span>
+      <div class="cal-rings" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
+
+      <!-- the page that stays: November -->
+      <div class="cal-page" aria-hidden="true">
+        <div class="cal-photo"><img src="gallery-1.jpg" width="853" height="1280" alt="" loading="lazy" decoding="async"></div>
+        <div class="cal-body">
+          <div class="cal-title"><span data-i18n="calNov">November</span><b id="calYear">2026</b></div>
+          <div class="cal-gridwrap" id="calGridWrap">
+            <div class="cal-grid" id="calGrid"></div>
+            <svg class="cal-mark" id="calMark"></svg>
+          </div>
+          <ul class="cal-legend">
+            <li><b class="n">18</b><span class="nm"><span class="t-en">Reception</span><span class="t-kn kn" lang="kn">ಆರತಕ್ಷತೆ</span></span><em data-i18n="rcTime">7:30 PM</em></li>
+            <li><b class="n">19</b><span class="nm"><span class="t-en">Dhaaraa Muhurtha</span><span class="t-kn kn" lang="kn">ಧಾರಾಮುಹೂರ್ತ</span></span><em data-i18n="muTime">9:30 AM – 10:30 AM</em></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- the sheet that tears off: October -->
+      <div class="cal-sheet" id="calSheet" aria-hidden="true">
+        <div class="cal-face cal-front">
+          <div class="cal-photo"><img src="gallery-3.jpg" width="853" height="1280" alt="" loading="lazy" decoding="async"></div>
+          <div class="cal-body">
+            <div class="cal-title"><span data-i18n="calOct">October</span><b>2026</b></div>
+            <div class="cal-gridwrap"><div class="cal-grid" id="calGridPrev"></div></div>
+          </div>
+          <div class="cal-notes"></div>
+        </div>
+        <div class="cal-face cal-back"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="cal-actions" data-rv="up">
+    <p class="cal-count" id="calCount" hidden></p>
+    <a class="btn btn-gold" id="icsBtn" href="nitin-amulya-save-the-date.ics" download="Nitin-Amulya-Wedding.ics">
+      <svg class="ic"><use href="#i-cal"/></svg><span data-i18n="saveBtn">Save the Date</span>
+    </a>
+    <p class="cal-note" id="calNote" aria-live="polite"><span data-i18n="remindNote">Adds both events, with reminders</span></p>
+    <div class="cal-chips">
+      <span data-i18n="gcal">Google Calendar</span>
+      <a class="chip" id="gcalRc" href="#" target="_blank" rel="noopener"><span class="t-en">Reception</span><span class="t-kn kn" lang="kn">ಆರತಕ್ಷತೆ</span></a>
+      <a class="chip" id="gcalMu" href="#" target="_blank" rel="noopener"><span class="t-en">Dhaaraa Muhurtha</span><span class="t-kn kn" lang="kn">ಧಾರಾಮುಹೂರ್ತ</span></a>
+    </div>
   </div>
 </section>
 

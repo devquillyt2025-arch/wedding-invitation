@@ -30,6 +30,7 @@ const EASE = [.2, .75, .2, 1];
 let lang = store.get('invite-lang') === 'en' ? 'en' : 'kn';   // Kannada is the default
 const t = key => I18N[lang][key] ?? I18N.en[key] ?? '';
 
+const langHooks = [];                              // modules with text that isn't plain data-i18n (e.g. the calendar) re-render here
 function applyLang() {
   root.lang = lang === 'kn' ? 'kn' : 'en';
   document.body.classList.toggle('lang-kn', lang === 'kn');
@@ -38,6 +39,7 @@ function applyLang() {
   $$('[data-i18n-alt]').forEach(el => el.setAttribute('alt', t(el.dataset.i18nAlt)));
   $$('.lang button').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.lang === lang)));
   $('#rsvpBtn').href = 'https://wa.me/' + CONFIG.whatsapp + '?text=' + encodeURIComponent(t('rsvpMsg'));
+  langHooks.forEach(fn => { try { fn(); } catch (e) { console.error('[invite:lang]', e); } });
 }
 function setLang(next) {
   if (next === lang) return;
@@ -52,13 +54,19 @@ applyLang();
 
 /* ─────────────────────────────  Calendar link  ───────────────────────────── */
 safe('calendar', () => {
-  const start = new Date(CONFIG.weddingStart);
-  const end = new Date(start.getTime() + CONFIG.weddingHours * 3600e3);
   const fmt = d => d.toISOString().replace(/[-:]/g, '').replace(/\.\d{3}/, '');
-  $('#calBtn').href = 'https://calendar.google.com/calendar/render?action=TEMPLATE'
-    + '&text=' + encodeURIComponent(CONFIG.calendarTitle)
-    + '&dates=' + fmt(start) + '/' + fmt(end)
-    + '&location=' + encodeURIComponent(CONFIG.calendarPlace);
+  const gcal = (title, startISO, hours, details) => {
+    const s = new Date(startISO), e = new Date(s.getTime() + hours * 3600e3);
+    return 'https://calendar.google.com/calendar/render?action=TEMPLATE'
+      + '&text=' + encodeURIComponent(title)
+      + '&dates=' + fmt(s) + '/' + fmt(e)
+      + '&details=' + encodeURIComponent(details + '\nInvitation: ' + CONFIG.siteUrl)
+      + '&location=' + encodeURIComponent(CONFIG.calendarPlace);
+  };
+  const muhurtha = gcal(CONFIG.calendarTitle, CONFIG.weddingStart, CONFIG.weddingHours, 'Dhaaraa Muhurtha (Dhanur Lagna), 9:30 AM – 10:30 AM');
+  $('#calBtn').href = muhurtha;
+  $('#gcalMu').href = muhurtha;
+  $('#gcalRc').href = gcal(CONFIG.receptionTitle, CONFIG.receptionStart, CONFIG.receptionHours, 'Reception, 7:30 PM');
 });
 
 /* ─────────────────────────────  Decorative SVG  ───────────────────────────── */
@@ -532,6 +540,104 @@ safe('tiltCards', () => {
     el.addEventListener('pointerleave', rest);
     el.addEventListener('pointercancel', rest);
   });
+});
+
+/* ─────────────────────────────  Save the Date: tear-off wall calendar  ─────────────────────────────
+   Builds October + November 2026 from CONFIG. The October sheet peels off and drops away, the wedding
+   days get circled in marker (drawn on), days already past are crossed out, and "N days to go" counts down. */
+safe('saveTheDate', () => {
+  const card = $('#calCard'); if (!card) return;
+  const grid = $('#calGrid'), gridPrev = $('#calGridPrev'), wrap = $('#calGridWrap'), mark = $('#calMark'), sheet = $('#calSheet');
+  const count = $('#calCount'), note = $('#calNote'), icsBtn = $('#icsBtn');
+
+  const [Y, MO, D2] = CONFIG.weddingStart.slice(0, 10).split('-').map(Number);   // wedding month (1-based) + Muhurtha day
+  const D1 = +CONFIG.receptionStart.slice(8, 10);                                // Reception day
+  const hot = new Set([D1, D2]);
+  const nd = new Date(), today0 = new Date(nd.getFullYear(), nd.getMonth(), nd.getDate()).getTime();
+  $('#calYear').textContent = String(Y);
+  const cell = cls => { const c = document.createElement('span'); c.className = cls; return c; };
+
+  function fill(host, year, m0, markHot) {
+    host.textContent = '';
+    for (let i = 0; i < 7; i++) { const c = cell('dow'); c.dataset.dow = i; host.appendChild(c); }
+    const first = new Date(year, m0, 1).getDay(), days = new Date(year, m0 + 1, 0).getDate();
+    for (let i = 0; i < first; i++) host.appendChild(cell('d pad'));
+    for (let d = 1; d <= days; d++) {
+      const c = cell('d'); c.textContent = d;
+      const ts = new Date(year, m0, d).getTime();
+      if (ts < today0) c.classList.add('gone'); else if (ts === today0) c.classList.add('today');
+      if (markHot && hot.has(d)) { c.classList.add('hot'); c.dataset.d = d; }
+      host.appendChild(c);
+    }
+    const total = Math.max(35, Math.ceil((first + days) / 7) * 7);          // both months render 5 weeks, so the sheet matches the page
+    for (let i = first + days; i < total; i++) host.appendChild(cell('d pad'));
+  }
+  fill(grid, Y, MO - 1, true);
+  const prev = new Date(Y, MO - 2, 1);
+  fill(gridPrev, prev.getFullYear(), prev.getMonth(), false);
+
+  // weekday letters + "N days to go" follow the language
+  const relang = () => {
+    const dow = t('calDow').split(',');
+    $$('.dow', card).forEach(el => { el.textContent = dow[+el.dataset.dow] || ''; });
+    const left = Math.ceil((new Date(CONFIG.weddingStart).getTime() - Date.now()) / 864e5);
+    count.hidden = left <= 0;
+    if (left > 0) count.textContent = t(left === 1 ? 'daysToGoOne' : 'daysToGo').replace('{n}', left);
+  };
+  langHooks.push(relang); relang();
+
+  // after tapping Save the Date, say what to do with the downloaded file
+  icsBtn.addEventListener('click', () => {
+    const s = $('span', note); s.dataset.i18n = 'icsHint'; s.textContent = t('icsHint');
+    if (fx) { const r = icsBtn.getBoundingClientRect(); Petals.burst(r.left + r.width / 2, r.top + r.height / 2, 30); }
+  });
+
+  // a hand-drawn marker loop around the wedding days (one loop if they share a week, else one each)
+  const loop = (cx, cy, rx, ry) => {
+    const f = (a, b) => (cx + rx * a).toFixed(1) + ' ' + (cy + ry * b).toFixed(1);
+    return `M${f(-.9, -.45)} C${f(-.6, -1.2)} ${f(.85, -1.25)} ${f(1.02, -.05)} C${f(1.12, .95)} ${f(-.55, 1.3)} ${f(-1.02, .15)} C${f(-1.12, -.6)} ${f(-.5, -1.05)} ${f(-.15, -1.15)}`;
+  };
+  let paths = [];
+  function placeMark(hide) {
+    mark.textContent = '';
+    const a = $('.d.hot[data-d="' + Math.min(D1, D2) + '"]', grid), b = $('.d.hot[data-d="' + Math.max(D1, D2) + '"]', grid);
+    paths = [];
+    if (!a || !b) return;
+    mark.setAttribute('viewBox', `0 0 ${wrap.offsetWidth} ${wrap.offsetHeight}`);   // offset* = layout size, unaffected by the 3D tilt
+    (a.offsetTop === b.offsetTop ? [[a, b]] : [[a, a], [b, b]]).forEach(([p, q]) => {
+      const x0 = p.offsetLeft, x1 = q.offsetLeft + q.offsetWidth, h = p.offsetHeight;
+      const path = document.createElementNS(NS, 'path');
+      path.setAttribute('d', loop((x0 + x1) / 2, p.offsetTop + h / 2, (x1 - x0) / 2 + 3, h / 2 + 3));
+      mark.appendChild(path); paths.push(path);
+      if (hide) { const L = path.getTotalLength(); path._L = L; path.style.strokeDasharray = L; path.style.strokeDashoffset = L; }
+    });
+  }
+
+  let played = false;
+  placeMark(fx);
+  const remeasure = () => { if (!played || !fx) placeMark(fx && !played); };
+  addEventListener('resize', remeasure);
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(remeasure);
+
+  if (!fx) return;                                           // reduced motion / no library: November is simply shown, circled
+  card.classList.add('armed');                               // show the October sheet on top
+  const draw = () => {
+    // numeric animate + manual style: Motion writes SVG stroke attributes itself, which would lose to the inline start-state
+    paths.forEach((p, i) => animate(0, 1, { duration: .9, delay: i * .25, ease: [.5, 0, .2, 1], onUpdate: v => { p.style.strokeDashoffset = String(p._L * (1 - v)); } }));
+    const r = mark.getBoundingClientRect();
+    setTimeout(() => Petals.burst(r.left + r.width / 2, r.top + r.height / 2, 34), 700);
+  };
+  inView(card, () => {
+    if (played) return; played = true;
+    placeMark(true);
+    setTimeout(() => {
+      // 1) peel up from the binding   2) let go: it drops away, turning and fading
+      animate(sheet, { rotateX: [0, -72] }, { duration: .85, ease: [.4, 0, .2, 1] }).then(() => {
+        animate(sheet, { rotateX: [-72, -125], y: [0, 480], rotateZ: [0, -14], opacity: [1, 0] }, { duration: 1.05, ease: [.5, 0, 1, .55] })
+          .then(() => { sheet.hidden = true; draw(); });
+      });
+    }, 750);
+  }, { amount: .55 });
 });
 
 /* tactile press feedback on every button */

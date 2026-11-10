@@ -10,6 +10,11 @@ const CONFIG = {
   whatsapp: '918951813296',                  /* country code + number, digits only */
   calendarTitle: 'Nitin & Amulya — Dhaaraa Muhurtha',
   calendarPlace: 'Madhava Mangala Samudaya Bhavana, Near Delhi World School, Malligenahalli, Sagara Road, Shivamogga',
+  /* Save-the-Date calendar. The invitation gives no end time for the Reception, so 7:30–9:30 PM is assumed. */
+  receptionStart: '2026-11-18T19:30:00+05:30',
+  receptionHours: 2,
+  receptionTitle: 'Nitin & Amulya — Reception',
+  siteUrl: 'https://nitin-weds-amulya.vercel.app/',
   /* Path/URL to the MP3; leave empty to use the built-in synthesised instrumental. */
   musicUrl: 'Madarangi-Kannada.mp3'          /* must sit in the same folder as this HTML file */
 };
@@ -74,6 +79,16 @@ const I18N = {
 
     footerNote: 'Your arrival is the only gift we wish for. Your presence is our joy.',
     footerAddr: 'Malenada Nilaya, Sri Mahalakshmi Drushti Enclave, J.P. Nagar, Mysuru',
+    calEyebrow: 'Mark your calendar',
+    calAria: 'Calendar for November 2026 with 18 and 19 November marked',
+    calOct: 'October', calNov: 'November',
+    calDow: 'S,M,T,W,T,F,S',
+    daysToGo: '{n} days to go', daysToGoOne: '1 day to go',
+    saveBtn: 'Save the Date',
+    gcal: 'Google Calendar',
+    remindNote: 'Adds both events, with reminders',
+    icsHint: 'Open the downloaded file to add both events to your calendar',
+
     musicPrompt: 'Tap to play music',
     musicPlay: 'Play music', musicPause: 'Pause music'
   },
@@ -132,6 +147,16 @@ const I18N = {
 
     footerNote: 'ತಮ್ಮ ಆಗಮನವನ್ನೇ ಉಡುಗೊರೆಯೆಂದು ಭಾವಿಸುತ್ತೇವೆ. ನಿಮ್ಮ ಉಪಸ್ಥಿತಿಯೇ ನಮ್ಮ ಸಂತೋಷ.',
     footerAddr: 'ಮಲೆನಾಡ ನಿಲಯ, ಶ್ರೀ ಮಹಾಲಕ್ಷ್ಮಿ ದೃಷ್ಟಿ ಎನ್‌ಕ್ಲೇವ್, ಜೆ. ಪಿ. ನಗರ, ಮೈಸೂರು',
+    calEyebrow: 'ನಿಮ್ಮ ಕ್ಯಾಲೆಂಡರ್‌ನಲ್ಲಿ ಗುರುತಿಸಿ',
+    calAria: 'ನವೆಂಬರ್ 2026 ಕ್ಯಾಲೆಂಡರ್; 18 ಮತ್ತು 19 ನವೆಂಬರ್ ಗುರುತಿಸಲಾಗಿದೆ',
+    calOct: 'ಅಕ್ಟೋಬರ್', calNov: 'ನವೆಂಬರ್',
+    calDow: 'ಭಾ,ಸೋ,ಮಂ,ಬು,ಗು,ಶು,ಶ',
+    daysToGo: 'ಇನ್ನು {n} ದಿನ ಬಾಕಿ', daysToGoOne: 'ಇನ್ನು 1 ದಿನ ಬಾಕಿ',
+    saveBtn: 'ದಿನಾಂಕ ಕಾಯ್ದಿರಿಸಿ',
+    gcal: 'ಗೂಗಲ್ ಕ್ಯಾಲೆಂಡರ್',
+    remindNote: 'ಎರಡೂ ಕಾರ್ಯಕ್ರಮಗಳು, ಜ್ಞಾಪನೆಯೊಂದಿಗೆ',
+    icsHint: 'ಡೌನ್‌ಲೋಡ್ ಆದ ಫೈಲ್ ತೆರೆದು ಎರಡೂ ಕಾರ್ಯಕ್ರಮಗಳನ್ನು ಕ್ಯಾಲೆಂಡರ್‌ಗೆ ಸೇರಿಸಿ',
+
     musicPrompt: 'ಸಂಗೀತ ಕೇಳಲು ಸ್ಪರ್ಶಿಸಿ',
     musicPlay: 'ಸಂಗೀತ ಆರಂಭಿಸಿ', musicPause: 'ಸಂಗೀತ ನಿಲ್ಲಿಸಿ'
   }

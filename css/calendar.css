@@ -1,0 +1,78 @@
+/* ═══════════════════════════════════════════════════
+   SAVE THE DATE — a tear-off wall calendar. The October sheet peels away to reveal November,
+   the wedding days get circled in marker, and days already gone are crossed off.
+   ═══════════════════════════════════════════════════ */
+.cal-sec{padding-bottom:clamp(60px,9vw,110px)}
+.cal-wrap{justify-items:center;padding-top:62px}
+.cal{position:relative;width:min(88vw,400px)}
+
+/* hanging: nail, cord, spiral binding */
+.cal-cord{position:absolute;left:0;top:-58px;width:100%;height:60px;pointer-events:none;overflow:visible;transform:translateZ(4px)}
+.cal-cord line{stroke:var(--gold-lo);stroke-width:1.4;opacity:.8}
+.cal-nail{position:absolute;left:50%;top:-62px;width:14px;height:14px;margin-left:-7px;border-radius:50%;transform:translateZ(6px);
+  background:radial-gradient(circle at 35% 30%,#FFF7D6,#E8C766 45%,#8A6A1F);box-shadow:0 3px 5px rgba(80,50,10,.45)}
+.cal-rings{position:absolute;left:8%;right:8%;top:-15px;z-index:5;display:flex;justify-content:space-between;pointer-events:none;transform:translateZ(14px)}
+.cal-rings i{display:block;width:14px;height:34px;border-radius:8px;border:3px solid;border-color:#F3DC92 #B88F2E #8A6A1F #D9B04A;
+  box-shadow:0 3px 4px rgba(80,50,10,.35),inset 0 0 0 1px rgba(255,255,255,.35)}
+
+/* paper: the stationary page, a couple of pages stacked beneath it for thickness */
+.cal::before,.cal::after{content:'';position:absolute;border-radius:12px;background:#EBDDBC;border:1px solid var(--gold-a45);pointer-events:none}
+.cal::before{inset:5px -2px -6px;transform:translateZ(-5px)}
+.cal::after{inset:9px -4px -11px;transform:translateZ(-10px);background:#DFCDA5}
+.cal-page,.cal-face{
+  position:relative;display:flex;flex-direction:column;border-radius:12px;overflow:hidden;
+  background:linear-gradient(180deg,#FFFFFB 0%,#FBF2DF 100%);border:1px solid var(--gold-a45);
+}
+.cal-page{box-shadow:var(--shadow-lift)}
+.cal-photo{position:relative;aspect-ratio:16/10;overflow:hidden;background:var(--bg-3);flex:0 0 auto}
+.cal-photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 38%}
+.cal-photo::after{content:'';position:absolute;left:0;right:0;bottom:0;height:34%;background:linear-gradient(transparent,#FFFDF3)}
+.cal-body{padding:0 clamp(12px,4vw,18px) 16px;flex:0 0 auto}
+.cal-title{display:flex;align-items:baseline;justify-content:center;gap:12px;margin:-4px 0 6px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;font-size:1.35rem;color:var(--maroon)}
+.cal-title b{font-weight:500;letter-spacing:.14em;color:var(--gold-text)}
+body.lang-kn .cal-title{letter-spacing:0;font-size:1.3rem}
+
+.cal-gridwrap{position:relative}
+.cal-grid{display:grid;grid-template-columns:repeat(7,1fr);row-gap:2px}
+.dow{text-align:center;font-size:.8rem;font-weight:700;letter-spacing:.06em;color:var(--gold-text);padding-bottom:5px;margin-bottom:3px;border-bottom:1px solid var(--gold-a25)}
+body.lang-kn .dow{letter-spacing:0;font-size:.82rem}
+.d{position:relative;display:grid;place-items:center;aspect-ratio:1/.9;font-size:1.08rem;font-weight:600;font-variant-numeric:lining-nums tabular-nums;color:var(--text)}
+.d.pad{visibility:hidden}
+.d.gone{color:var(--text-3);opacity:.5}
+.d.gone::after{content:'';position:absolute;left:20%;right:20%;top:50%;height:1.5px;background:var(--maroon);opacity:.75;transform:rotate(-26deg)}
+.d.today::before{content:'';position:absolute;inset:12%;border-radius:50%;border:1.5px dashed var(--gold)}
+.d.hot{color:var(--maroon);font-size:1.28rem;font-weight:700;isolation:isolate}
+.d.hot::before{content:'';position:absolute;z-index:-1;inset:4%;border-radius:50%;background:radial-gradient(circle,rgba(232,199,102,.6),rgba(232,199,102,0) 72%);animation:hotPulse 2.6s ease-in-out infinite}
+@keyframes hotPulse{0%,100%{transform:scale(.85);opacity:.7}50%{transform:scale(1.15);opacity:1}}
+.cal-mark{position:absolute;left:0;top:0;width:100%;height:100%;overflow:visible;pointer-events:none}
+.cal-mark path{fill:none;stroke:var(--maroon);stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round;opacity:.92}
+
+.cal-legend{list-style:none;margin:12px 0 0;padding:12px 0 0;border-top:1px dashed var(--gold-a45);display:grid;gap:7px}
+.cal-legend li{display:grid;grid-template-columns:2.1em 1fr auto;align-items:baseline;gap:8px;font-size:1rem;line-height:1.35}
+.cal-legend .n{font-size:1.25rem;font-weight:700;color:var(--maroon);text-align:center}
+.cal-legend .nm{font-weight:600}
+.cal-legend em{font-size:.92rem;color:var(--text-3);font-style:normal;white-space:nowrap}
+
+/* the October sheet: hinged at the binding, hidden unless the script arms it (so no-JS shows November) */
+.cal-sheet{position:absolute;inset:0;z-index:3;display:none;transform-origin:50% 0;transform-style:preserve-3d}
+.cal.armed .cal-sheet{display:block}
+.cal-face{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden}
+.cal-front{box-shadow:0 22px 40px -14px rgba(90,50,10,.5)}
+.cal-back{transform:rotateX(180deg);background:linear-gradient(0deg,#F1E3C2,#FBF3E0)}
+.cal-notes{flex:1 1 auto;margin:6px clamp(12px,4vw,18px) 16px;border-radius:4px;
+  background:repeating-linear-gradient(transparent 0 25px,rgba(169,131,42,.3) 25px 26px)}
+
+/* actions */
+.cal-actions{margin-top:34px;display:flex;flex-direction:column;align-items:center;gap:14px;text-align:center}
+.cal-count{margin:0;font-style:italic;font-size:1.3rem;color:var(--maroon)}
+.cal-note{margin:0;color:var(--text-3);font-size:.98rem;font-style:italic;min-height:1.7em;max-width:34ch}
+.cal-chips{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:8px;color:var(--text-3);font-size:.95rem}
+.chip{
+  display:inline-flex;align-items:center;min-height:44px;padding:0 16px;border:1px solid var(--gold);border-radius:999px;
+  background:rgba(255,255,255,.6);color:var(--maroon);font-weight:600;font-size:.98rem;text-decoration:none;
+  transition:background-color .25s;
+}
+.chip:hover{background:var(--gold-a12)}
+
+@media (min-width:768px){.cal{width:420px}}
+@media (prefers-reduced-motion:reduce){.d.hot::before{animation:none}}

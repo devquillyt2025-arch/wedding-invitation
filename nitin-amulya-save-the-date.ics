@@ -1,0 +1,57 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Nitin weds Amulya//Save the Date//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:Nitin & Amulya's Wedding
+BEGIN:VEVENT
+UID:reception-20261118@nitin-weds-amulya.vercel.app
+DTSTAMP:20261110T084048Z
+DTSTART:20261118T140000Z
+DTEND:20261118T160000Z
+SUMMARY:Reception - Nitin & Amulya's Wedding
+LOCATION:Madhava Mangala Samudaya Bhavana\, Near Delhi World School\, Malli
+ genahalli\, Sagara Road\, Shivamogga
+DESCRIPTION:Reception for the wedding of Nitin V & Amulya K S\, 7:30 PM.\n
+ ಆರತಕ್ಷತೆ - ನಿತಿನ್ ಮತ್ತು ಅಮೂಲ
+ ್ಯ.\nInvitation: https://nitin-weds-amulya.vercel.app/
+URL:https://nitin-weds-amulya.vercel.app/
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+BEGIN:VALARM
+TRIGGER:-P1D
+ACTION:DISPLAY
+DESCRIPTION:Tomorrow: Reception for Nitin & Amulya\, 7:30 PM
+END:VALARM
+BEGIN:VALARM
+TRIGGER:-PT3H
+ACTION:DISPLAY
+DESCRIPTION:Today: Reception for Nitin & Amulya\, 7:30 PM
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:muhurtha-20261119@nitin-weds-amulya.vercel.app
+DTSTAMP:20261110T084048Z
+DTSTART:20261119T040000Z
+DTEND:20261119T050000Z
+SUMMARY:Dhaaraa Muhurtha - Nitin & Amulya's Wedding
+LOCATION:Madhava Mangala Samudaya Bhavana\, Near Delhi World School\, Malli
+ genahalli\, Sagara Road\, Shivamogga
+DESCRIPTION:Dhaaraa Muhurtha (Dhanur Lagna)\, 9:30 AM - 10:30 AM.\nಧಾ
+ ರಾಮುಹೂರ್ತ - ನಿತಿನ್ ಮತ್ತು ಅಮೂ
+ ಲ್ಯ.\nInvitation: https://nitin-weds-amulya.vercel.app/
+URL:https://nitin-weds-amulya.vercel.app/
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+BEGIN:VALARM
+TRIGGER:-P1D
+ACTION:DISPLAY
+DESCRIPTION:Tomorrow: Dhaaraa Muhurtha for Nitin & Amulya\, 9:30 AM
+END:VALARM
+BEGIN:VALARM
+TRIGGER:-PT2H
+ACTION:DISPLAY
+DESCRIPTION:Today: Dhaaraa Muhurtha for Nitin & Amulya\, 9:30 AM
+END:VALARM
+END:VEVENT
+END:VCALENDAR
