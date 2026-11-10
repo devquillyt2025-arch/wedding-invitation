@@ -1,0 +1,62 @@
+/* ═══════════════════════════════════════════════════
+   VERSE — large italic lines whose words ink in as you scroll
+   ═══════════════════════════════════════════════════ */
+.verse{position:relative;padding:clamp(64px,11vw,130px) var(--gutter) clamp(70px,11vw,140px);background:linear-gradient(180deg,var(--pearl) 0%,#FFF8F0 50%,var(--pearl) 100%)}
+.verse-in{position:relative;max-width:900px;margin:0 auto;text-align:center}
+.q{display:block;height:.46em;font-family:var(--f-disp);font-size:clamp(5.4rem,17vw,10rem);line-height:.9;color:var(--gold);opacity:.5}
+.verse blockquote{margin:0}
+.verse-text{margin:20px 0 0;font-family:var(--f-disp);font-style:italic;font-weight:400;font-size:clamp(1.5rem,5.2vw,2.6rem);line-height:1.5;letter-spacing:-.005em;color:var(--ink)}
+.verse-text .w{display:inline-block;opacity:.17}
+body.lang-kn .verse-text{font-family:var(--f-kn);font-style:normal;font-size:clamp(1.35rem,4.7vw,2.1rem);line-height:1.95}
+.verse-by{margin:34px 0 0;font-family:var(--f-label);font-size:.8rem;font-weight:500;letter-spacing:.28em;text-transform:uppercase;color:var(--gold-text)}
+body.lang-kn .verse-by,body.lang-kn .verse-by [data-i18n]{font-family:var(--f-kn);letter-spacing:.02em;text-transform:none;font-size:1.05rem}
+.verse-by::before{content:'';display:block;width:44px;height:1px;margin:0 auto 16px;background:var(--gold)}
+
+/* ═══════════════════════════════════════════════════
+   COUPLE — two arch "windows" joined by a garland of seven beads that draws itself
+   ═══════════════════════════════════════════════════ */
+.couple{position:relative;padding:clamp(56px,9vw,110px) 0 clamp(80px,11vw,130px);background:linear-gradient(180deg,var(--pearl) 0%,#FFF9F3 38%,#FBEBE1 100%)}
+.poem{margin:6px auto 0;max-width:46ch;white-space:pre-line;font-style:italic;line-height:1.8;color:var(--ink-2)}
+.pair{position:relative;max-width:1060px;margin:0 auto;padding:0 var(--gutter);display:grid;gap:clamp(64px,14vw,100px)}
+.who{position:relative;display:grid;gap:22px;justify-items:center;text-align:center;width:min(80%,330px)}
+.who-g{justify-self:start}
+.who-b{justify-self:end}
+.arch{
+  position:relative;width:100%;aspect-ratio:3/4.1;padding:7px;border-radius:999px 999px 16px 16px;
+  background:linear-gradient(160deg,#F7E3A0 0%,#C79F46 38%,#8F6F24 62%,#E6C262 100%);box-shadow:var(--shadow-lift);
+}
+.arch::before{content:'';position:absolute;left:50%;top:-9px;width:18px;height:18px;margin-left:-9px;transform:rotate(45deg);background:linear-gradient(135deg,#FFF1C2,#C79F46);box-shadow:0 2px 6px rgba(143,111,36,.5);z-index:2}
+.arch-in{position:relative;width:100%;height:100%;border-radius:999px 999px 10px 10px;overflow:hidden;background:var(--blush);box-shadow:inset 0 0 0 1px rgba(255,255,255,.6)}
+.arch-in img{position:absolute;left:0;top:-9%;width:100%;height:118%;max-width:none;object-fit:cover;will-change:transform}
+.arch-in::after{content:'';position:absolute;inset:0;pointer-events:none;background:linear-gradient(180deg,rgba(255,255,255,.18),transparent 30%,transparent 70%,rgba(15,79,95,.18))}
+.role{margin:0;font-family:var(--f-label);font-size:.75rem;font-weight:500;letter-spacing:.34em;text-transform:uppercase;color:var(--gold-text)}
+body.lang-kn .role,body.lang-kn .role [data-i18n]{font-family:var(--f-kn);letter-spacing:.04em;text-transform:none;font-size:.95rem}
+.p-name{margin:4px 0 0;font-family:var(--f-disp);font-weight:400;font-size:clamp(2rem,7.4vw,2.8rem);line-height:1.15;color:var(--teal)}
+body.lang-kn .p-name .kn{display:block;font-family:var(--f-kn-deco);font-size:clamp(1.7rem,6.5vw,2.2rem);line-height:1.5}
+.bio{margin:10px auto 0;max-width:36ch;font-family:var(--f-label);font-size:.78rem;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-2)}
+body.lang-kn .bio,body.lang-kn .bio [data-i18n]{font-family:var(--f-kn);letter-spacing:0;text-transform:none;font-size:1rem}
+.parents{margin:8px auto 0;max-width:34ch;font-style:italic;color:var(--ink-2)}
+
+.garland{position:absolute;left:0;top:0;width:100%;height:100%;overflow:visible;pointer-events:none;z-index:3}
+.garland .gl{fill:none;stroke:url(#gCd);stroke-width:1.6;stroke-linecap:round}
+.garland .gl-soft{fill:none;stroke:rgba(199,159,70,.25);stroke-width:5;stroke-linecap:round;filter:blur(2px)}
+.garland .bead{fill:#FFF3C8;stroke:#C79F46;stroke-width:1.4}
+.garland .knot{fill:var(--lotus);stroke:#fff;stroke-width:1.2}
+
+@media (min-width:820px){
+  .pair{grid-template-columns:1fr 1fr;gap:clamp(70px,10vw,150px);align-items:start}
+  .who{width:min(100%,340px)}
+  .who-g,.who-b{justify-self:center}
+  .who-b{margin-top:clamp(80px,11vw,150px)}
+}
+
+/* ═══════════════════════════════════════════════════
+   RIBBON — a teal band across the page; the text slides slowly
+   ═══════════════════════════════════════════════════ */
+.ribbon{position:relative;z-index:2;overflow:hidden;width:110%;margin:-10px 0 26px -5%;transform:rotate(-1.4deg);
+  background:linear-gradient(90deg,#0C4350,#14606F,#0C4350);border-block:1px solid rgba(242,216,138,.65);box-shadow:0 16px 34px -14px rgba(15,60,74,.55)}
+.rb-track{display:flex;width:max-content;animation:marquee 48s linear infinite}
+.rb-track span{flex:0 0 auto;padding:15px 0;font-family:var(--f-disp);font-style:italic;font-size:clamp(1.05rem,3.2vw,1.45rem);letter-spacing:.22em;white-space:nowrap;color:var(--gold-hi)}
+.rb-track i{font-style:normal;margin:0 1em;font-size:.66em;color:var(--lotus)}
+@keyframes marquee{to{transform:translateX(-50%)}}
+@media (prefers-reduced-motion:reduce){.rb-track{animation:none}}

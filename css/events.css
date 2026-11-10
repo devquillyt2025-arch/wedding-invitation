@@ -1,0 +1,96 @@
+/* ═══════════════════════════════════════════════════
+   EVENTS — the sky portal. A round window shows 18 Nov at dusk turning to night and then to the dawn of 19 Nov
+   as you scroll. Without the pinned scene (no JS / reduced motion) the same content is just two cards.
+   ═══════════════════════════════════════════════════ */
+.portal{position:relative;padding:clamp(70px,10vw,120px) var(--gutter) clamp(60px,9vw,100px);background:linear-gradient(180deg,#FBEBE1 0%,var(--pearl) 100%)}
+.portal-stick{max-width:1100px;margin:0 auto}
+.portal-stage{display:grid;gap:clamp(14px,3svh,28px);justify-items:center;text-align:center}
+
+/* the round window */
+.orb-wrap{--os:min(70vw,32svh,440px);position:relative;width:var(--os);aspect-ratio:1;flex:0 0 auto}
+/* a brass plate behind the window, so the ring reads as a real fitting */
+.orb-wrap::before{content:'';position:absolute;inset:0;border-radius:50%;background:radial-gradient(circle at 50% 38%,#FFFAEA 0%,#F7EACB 62%,#E9D199 100%);box-shadow:0 24px 48px -16px rgba(15,60,74,.55),inset 0 0 0 1px rgba(199,159,70,.45)}
+.orb{position:absolute;inset:6.8%;border-radius:50%;overflow:hidden;box-shadow:inset 0 0 0 2px rgba(255,255,255,.4),inset 0 8px 22px rgba(0,0,0,.28)}
+.orb-sky{position:absolute;inset:0;background:linear-gradient(180deg,#7E79B8 0%,#E9A0B6 55%,#FBC98F 100%)}
+.orb-ring{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
+.orb-ring .r-main{fill:none;stroke:url(#gCd);stroke-width:2.2}
+.orb-ring .r-tick{stroke:rgba(143,111,36,.55);stroke-width:.9}
+.orb-ring .r-tick.big{stroke:#B38A2D;stroke-width:1.6}
+.orb-ring .r-prog{fill:none;stroke:#FFF3C8;stroke-width:3;stroke-linecap:round;filter:drop-shadow(0 0 4px rgba(255,236,170,.9))}
+.orb-ring .r-dot{fill:#FFF8DA;stroke:#C79F46;stroke-width:1.5}
+.o-stars{position:absolute;inset:0;opacity:0;
+  background-image:
+    radial-gradient(1.6px 1.6px at 14% 18%,#fff 50%,transparent 52%),radial-gradient(1.2px 1.2px at 78% 12%,#FFF3C8 50%,transparent 52%),
+    radial-gradient(1.4px 1.4px at 44% 28%,#fff 50%,transparent 52%),radial-gradient(1px 1px at 90% 34%,#fff 50%,transparent 52%),
+    radial-gradient(1.6px 1.6px at 28% 44%,#FFF3C8 50%,transparent 52%),radial-gradient(1.2px 1.2px at 64% 40%,#fff 50%,transparent 52%),
+    radial-gradient(1px 1px at 8% 56%,#fff 50%,transparent 52%),radial-gradient(1.4px 1.4px at 54% 8%,#fff 50%,transparent 52%),
+    radial-gradient(1.2px 1.2px at 84% 54%,#FFF3C8 50%,transparent 52%),radial-gradient(1px 1px at 36% 12%,#fff 50%,transparent 52%)}
+.o-stars.b{background-image:
+    radial-gradient(1.4px 1.4px at 22% 10%,#fff 50%,transparent 52%),radial-gradient(1.6px 1.6px at 70% 24%,#fff 50%,transparent 52%),
+    radial-gradient(1px 1px at 50% 50%,#FFF3C8 50%,transparent 52%),radial-gradient(1.2px 1.2px at 12% 36%,#fff 50%,transparent 52%),
+    radial-gradient(1.4px 1.4px at 92% 8%,#fff 50%,transparent 52%),radial-gradient(1px 1px at 60% 14%,#fff 50%,transparent 52%);
+  animation:twinkle 3.4s ease-in-out infinite alternate}
+@keyframes twinkle{from{filter:brightness(.55)}to{filter:brightness(1.35)}}
+.o-moon{position:absolute;left:0;top:0;width:15%;aspect-ratio:1;margin:-7.5% 0 0 -7.5%;border-radius:50%;box-shadow:inset -9px -3px 0 0 #FFF4D2;filter:drop-shadow(0 0 9px rgba(255,244,210,.85));opacity:0;will-change:transform}
+.o-sun{position:absolute;left:0;top:0;width:19%;aspect-ratio:1;margin:-9.5% 0 0 -9.5%;border-radius:50%;background:radial-gradient(circle,#FFFDEE 0%,#FFE9A8 55%,#FBD27A 100%);box-shadow:0 0 28px 12px rgba(255,226,150,.7);will-change:transform}
+.o-hills{position:absolute;left:0;right:0;bottom:-1px;width:100%;height:36%;display:block}
+
+/* event details beside / below the window; both articles share one grid cell and cross-fade */
+.evs{display:grid;width:100%;max-width:520px}
+.ev{grid-area:1/1;text-align:center}
+.ev-day{margin:0;display:flex;flex-direction:column;align-items:center;gap:2px}
+.ev-day .n{font-family:var(--f-disp);font-weight:500;font-size:clamp(2.8rem,11vw,4.6rem);line-height:1;font-variant-numeric:lining-nums;padding:0 .05em}
+.ev-date{font-family:var(--f-label);font-size:.78rem;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--teal)}
+body.lang-kn .ev-date{font-family:var(--f-kn);letter-spacing:0;text-transform:none;font-size:1.02rem}
+.ev-title{margin:4px 0 8px;font-family:var(--f-disp);font-weight:400;font-size:clamp(1.6rem,5.4vw,2.3rem);line-height:1.15;color:var(--ink)}
+.ev-title .t-kn{display:block;font-family:var(--f-kn);font-size:1.05rem;font-weight:600;margin-top:2px}
+body.lang-kn .ev-title .t-kn{font-size:clamp(1.5rem,5vw,1.9rem);margin-top:0;line-height:1.45}
+.meta{list-style:none;margin:0;padding:0;display:grid;gap:3px;justify-items:center}
+.meta li{display:flex;align-items:flex-start;gap:10px;color:var(--ink);text-align:left;line-height:1.45}
+.meta .ic{margin-top:.22em;color:var(--gold)}
+.dress{margin:8px auto 0;max-width:42ch;padding-top:8px;border-top:1px dashed var(--gold-a45);font-style:italic;font-size:.9rem;line-height:1.45;color:var(--ink-2)}
+
+.ev-tabs{display:flex;justify-content:center;flex-wrap:wrap;gap:8px}
+.ev-tabs button{min-height:44px;padding:0 20px;border:1px solid var(--teal);border-radius:999px;background:rgba(255,255,255,.55);color:var(--teal);font-family:var(--f-label);font-size:.8rem;font-weight:500;letter-spacing:.06em;transition:background-color .3s,color .3s}
+body.lang-kn .ev-tabs button{font-family:var(--f-kn);letter-spacing:0;font-size:.95rem}
+.ev-tabs button[aria-pressed="true"]{background:var(--teal);color:var(--gold-hi)}
+
+/* pinned experience (script adds .on) */
+.portal.on{padding:0;height:calc(100svh + 200svh)}
+.portal.on .portal-stick{position:sticky;top:0;height:100vh;height:100svh;max-width:none;display:flex;flex-direction:column;justify-content:flex-start;gap:clamp(6px,1.6svh,16px);padding:calc(var(--safe-t) + 18px) var(--gutter) calc(82px + var(--safe-b))}
+.portal.on .portal-stage{flex:1 1 auto;align-content:center}
+@media (max-height:720px){
+  .orb-wrap{--os:min(50vw,22svh,250px)}
+  .portal.on .sec-head .eyebrow{display:none}
+  .portal.on .sec-title{font-size:1.6rem}
+  .ev-day .n{font-size:2.3rem}
+  .ev-title{font-size:1.45rem;margin:0 0 4px}
+  body.lang-kn .ev-title .t-kn{font-size:1.4rem}
+  .meta{gap:1px}
+  .meta li{line-height:1.3;font-size:1.05rem}
+  .dress{margin-top:6px;padding-top:6px;font-size:.8rem;line-height:1.35}
+  .ev-tabs button{min-height:40px}
+}
+.portal.on .sec-head{margin:0}
+.portal.on .sec-head::after{display:none}
+.portal.on .sec-title{margin-top:4px;font-size:clamp(1.7rem,5.6vw,2.6rem)}
+.portal.on .sec-title .t-kn{display:none}
+body.lang-kn .portal.on .sec-title .t-en{display:none}
+body.lang-kn .portal.on .sec-title .t-kn{display:block;font-size:clamp(1.6rem,5.6vw,2.4rem)}
+.portal.on .portal-stage{max-width:1040px;margin:0 auto;width:100%}
+
+/* not pinned: two plain cards, no window */
+.portal:not(.on) .orb-wrap,.portal:not(.on) .ev-tabs{display:none}
+.portal:not(.on) .evs{max-width:900px;gap:22px}
+.portal:not(.on) .ev{grid-area:auto;padding:28px 22px;border:1px solid var(--gold-a25);border-radius:20px;background:rgba(255,255,255,.7);box-shadow:var(--shadow-soft)}
+
+@media (min-width:900px){
+  .orb-wrap{--os:min(42vw,58svh,470px)}
+  .portal.on .portal-stage{grid-template-columns:auto minmax(0,1fr);gap:clamp(40px,6vw,90px);align-items:center;justify-items:start;text-align:left}
+  .portal.on .ev{text-align:left}
+  .portal.on .ev-day{align-items:flex-start}
+  .portal.on .meta{justify-items:start}
+  .portal.on .ev-tabs{justify-content:center}
+  .portal:not(.on) .evs{grid-template-columns:1fr 1fr}
+}
+

@@ -6,7 +6,7 @@
 <!-- PLACEHOLDER: couple names in title -->
 <title>Nitin V &amp; Amulya K S · Wedding Invitation</title>
 <meta name="description" content="Together with our families, we invite you to celebrate the wedding of Nitin V &amp; Amulya K S — Reception on 18 November and Dhaaraa Muhurtha on 19 November 2026 at Madhava Mangala Samudaya Bhavana, Shivamogga.">
-<meta name="theme-color" content="#FBF5E8">
+<meta name="theme-color" content="#F6D9D0">
 <meta name="color-scheme" content="light">
 
 <!-- ═══ WhatsApp / social link preview ═══
@@ -20,29 +20,31 @@
 <!-- og-cover.jpg (1200×630) must sit in the same folder as this HTML file; the URL below must stay absolute.
      WhatsApp caches previews per URL: bump the ?v= number whenever og-cover.jpg changes. -->
 <meta property="og:url" content="https://nitin-weds-amulya.vercel.app/">
-<meta property="og:image" content="https://nitin-weds-amulya.vercel.app/og-cover.jpg?v=2">
+<meta property="og:image" content="https://nitin-weds-amulya.vercel.app/og-cover.jpg?v=3">
 <meta property="og:image:type" content="image/jpeg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="Wedding invitation of Nitin V and Amulya K S">
 <meta name="twitter:card" content="summary_large_image">
 
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='30' fill='%237A1E2C'/%3E%3Ccircle cx='32' cy='32' r='24' fill='none' stroke='%23C9A84C' stroke-width='2' stroke-dasharray='3 3'/%3E%3Ctext x='32' y='41' font-size='24' text-anchor='middle' fill='%23E9D18A' font-family='Georgia,serif' font-style='italic'%3EN%26A%3C/text%3E%3C/svg%3E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='30' fill='%230F4F5F'/%3E%3Cpath d='M32 49C21 43 19 30 32 15c13 15 11 28 0 34z' fill='%23F2D88A'/%3E%3Cpath d='M32 49C19 47 11 38 13 27c8 2 15 11 19 22z' fill='%23E7A3A6'/%3E%3Cpath d='M32 49C45 47 53 38 51 27c-8 2-15 11-19 22z' fill='%23E7A3A6'/%3E%3C/svg%3E">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Akaya+Kanadaka&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Allura&family=Noto+Serif+Kannada:wght@400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Akaya+Kanadaka&family=Allura&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Jost:wght@400;500;600&family=Noto+Serif+Kannada:wght@400;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
 
 <link rel="stylesheet" href="css/base.css">
 <link rel="stylesheet" href="css/intro.css">
 <link rel="stylesheet" href="css/hero.css">
-<link rel="stylesheet" href="css/sections.css">
-<link rel="stylesheet" href="css/calendar.css">
+<link rel="stylesheet" href="css/story.css">
+<link rel="stylesheet" href="css/events.css">
+<link rel="stylesheet" href="css/hearts.css">
+<link rel="stylesheet" href="css/place.css">
+<link rel="stylesheet" href="css/finale.css">
 
 <noscript><style>
-  /* without JavaScript the gates can't be scrolled open, so show the venue directly */
-  .door,.gate-hint,.gate-glow{display:none}
-  .gates{height:auto}.gates-sticky{position:relative;height:auto;padding-bottom:40px}
+  /* without JavaScript there is no pinned sky portal: events simply show as two cards (see .portal:not(.on)) */
+  .env-overlay{display:none!important}
 </style></noscript>
 </head>
 
@@ -52,7 +54,7 @@ try { if (localStorage.getItem('invite-lang') !== 'en') document.body.classList.
 catch (e) { document.body.classList.add('lang-kn'); }</script>
 <a class="sr-only" href="#home" data-i18n="skipLink">Skip to invitation</a>
 
-<!-- ═══ SVG SPRITE (icons + ornaments) ═══ -->
+<!-- ═══ SVG SPRITE (icons + ornaments + gradients) ═══ -->
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
   <defs>
     <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></symbol>
@@ -78,280 +80,254 @@ catch (e) { document.body.classList.add('lang-kn'); }</script>
       <path d="M0 10h52M98 10h52"/><path d="M52 10c6-7 12-7 16 0-4 7-10 7-16 0z"/><path d="M98 10c-6-7-12-7-16 0 4 7 10 7 16 0z"/>
       <path class="f" d="M75 2l6 8-6 8-6-8z"/><circle class="f" cx="44" cy="10" r="1.6"/><circle class="f" cx="106" cy="10" r="1.6"/>
     </symbol>
-    <symbol id="i-medallion" viewBox="0 0 100 100"><circle cx="50" cy="50" r="46"/><circle cx="50" cy="50" r="41" stroke-dasharray="1.4 3.2"/><path d="M50 38C57 29 57 17 50 9C43 17 43 29 50 38z" transform="rotate(0 50 50)"/><path d="M50 38C57 29 57 17 50 9C43 17 43 29 50 38z" transform="rotate(45 50 50)"/><path d="M50 38C57 29 57 17 50 9C43 17 43 29 50 38z" transform="rotate(90 50 50)"/><path d="M50 38C57 29 57 17 50 9C43 17 43 29 50 38z" transform="rotate(135 50 50)"/><path d="M50 38C57 29 57 17 50 9C43 17 43 29 50 38z" transform="rotate(180 50 50)"/><path d="M50 38C57 29 57 17 50 9C43 17 43 29 50 38z" transform="rotate(225 50 50)"/><path d="M50 38C57 29 57 17 50 9C43 17 43 29 50 38z" transform="rotate(270 50 50)"/><path d="M50 38C57 29 57 17 50 9C43 17 43 29 50 38z" transform="rotate(315 50 50)"/><path d="M50 4l2.6 3.4L50 10.8l-2.6-3.4z" transform="rotate(22.5 50 50)"/><path d="M50 4l2.6 3.4L50 10.8l-2.6-3.4z" transform="rotate(67.5 50 50)"/><path d="M50 4l2.6 3.4L50 10.8l-2.6-3.4z" transform="rotate(112.5 50 50)"/><path d="M50 4l2.6 3.4L50 10.8l-2.6-3.4z" transform="rotate(157.5 50 50)"/><path d="M50 4l2.6 3.4L50 10.8l-2.6-3.4z" transform="rotate(202.5 50 50)"/><path d="M50 4l2.6 3.4L50 10.8l-2.6-3.4z" transform="rotate(247.5 50 50)"/><path d="M50 4l2.6 3.4L50 10.8l-2.6-3.4z" transform="rotate(292.5 50 50)"/><path d="M50 4l2.6 3.4L50 10.8l-2.6-3.4z" transform="rotate(337.5 50 50)"/><circle cx="50" cy="50" r="13"/><circle cx="50" cy="50" r="6"/></symbol>
-    <linearGradient id="gRing" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#F3DC92"/><stop offset=".5" stop-color="#A9832A" stop-opacity=".4"/><stop offset="1" stop-color="#E8C766"/></linearGradient>
-    <radialGradient id="gBead" cx=".35" cy=".3" r=".75"><stop offset="0" stop-color="#FFF7D6"/><stop offset=".5" stop-color="#E8C766"/><stop offset="1" stop-color="#8A6A1F"/></radialGradient>
+    <linearGradient id="gLotusOuter" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#E27D9C"/><stop offset=".55" stop-color="#F3B1C4"/><stop offset="1" stop-color="#FCEBEB"/></linearGradient>
+    <linearGradient id="gLotusMid" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#EC96B0"/><stop offset=".55" stop-color="#F8C8D5"/><stop offset="1" stop-color="#FFF4F0"/></linearGradient>
+    <linearGradient id="gLotusInner" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F4ADC1"/><stop offset=".6" stop-color="#FBDAE2"/><stop offset="1" stop-color="#FFFBF6"/></linearGradient>
+    <linearGradient id="gCd" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#F2D88A"/><stop offset=".5" stop-color="#C79F46"/><stop offset="1" stop-color="#8F6F24"/></linearGradient>
   </defs>
 </svg>
 
-<!-- scroll progress -->
-<div class="progress" id="progress" aria-hidden="true"><span></span></div>
-
-<!-- fixed backdrop: drifting colour orbs + a huge faint mandala, so there is always depth behind the chapters -->
-<div class="world" aria-hidden="true">
-  <span class="orb o1" data-drift=".06"></span>
-  <span class="orb o2" data-drift="-.04"></span>
-  <span class="orb o3" data-drift=".09"></span>
-  <svg class="world-mandala" id="worldMandala" viewBox="0 0 600 600"></svg>
-</div>
-
-<!-- ═══ LANGUAGE TOGGLE ═══ -->
-<div class="lang" role="group" aria-label="Language / ಭಾಷೆ">
-  <button type="button" data-lang="en" aria-pressed="true">EN</button>
-  <button type="button" data-lang="kn" lang="kn" aria-pressed="false">ಕನ್ನಡ</button>
-</div>
-
-<!-- ═══ ENVELOPE INTRO ═══ -->
+<!-- ═══ INTRO — a lotus that blooms on a dawn pond ═══ -->
 <div class="env-overlay" id="envelope">
-  <div class="env-rays" aria-hidden="true"></div>
+  <div class="intro-sun" aria-hidden="true"></div>
   <button type="button" class="env-skip" id="envSkip"><span data-i18n="skipLink">Skip to invitation</span></button>
-  <p class="env-title">
-    <span class="t1" data-i18n="envInvited">You are cordially invited</span>
+
+  <div class="intro-copy">
+    <p class="t1" data-i18n="envInvited">You are cordially invited</p>
     <!-- PLACEHOLDER: couple names -->
-    <span class="t2 shimmer only-en">Nitin &amp; Amulya</span>
-    <span class="t2 shimmer only-kn" lang="kn">ನಿತಿನ್ ಮತ್ತು ಅಮೂಲ್ಯ</span>
-  </p>
-  <div class="env-stage" id="envStage">
-    <div class="env-float" id="envFloat">
-      <div class="env-tilt" id="envTilt">
-        <button type="button" class="envelope" id="envBtn" aria-label="Open the invitation">
-          <span class="env-back"></span>
-          <span class="env-card">
-            <span class="card-in">
-              <span class="c-small only-en">Shubha Vivaha</span>
-              <span class="c-small kn only-kn" lang="kn">॥ ಶುಭ ವಿವಾಹ ॥</span>
-              <!-- PLACEHOLDER: couple names + date -->
-              <span class="c-names only-en">Nitin &amp; Amulya</span>
-              <span class="c-kn kn only-kn" lang="kn">ನಿತಿನ್ · ಅಮೂಲ್ಯ</span>
-              <span class="c-date">18 &amp; 19 · 11 · 2026</span>
-            </span>
-          </span>
-          <span class="env-front">
-            <svg viewBox="0 0 300 200" preserveAspectRatio="none" aria-hidden="true">
-              <defs><linearGradient id="gFront" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F8E4DC"/><stop offset="1" stop-color="#EDC9BD"/></linearGradient></defs>
-              <path d="M0 0 L150 112 L300 0 V200 H0 Z" fill="url(#gFront)"/>
-              <path d="M0 200 L128 96 M300 200 L172 96" stroke="#A9832A" stroke-opacity=".5" stroke-width="1" vector-effect="non-scaling-stroke" fill="none"/>
-              <path d="M0 0 L150 112 L300 0" stroke="#A9832A" stroke-opacity=".75" stroke-width="1" vector-effect="non-scaling-stroke" fill="none"/>
-              <rect x="1" y="1" width="298" height="198" rx="4" fill="none" stroke="#A9832A" stroke-opacity=".7" vector-effect="non-scaling-stroke"/>
-            </svg>
-          </span>
-          <span class="env-flap">
-            <svg viewBox="0 0 300 124" preserveAspectRatio="none" aria-hidden="true">
-              <defs><linearGradient id="gFlap" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FDF0EA"/><stop offset="1" stop-color="#F3D5CB"/></linearGradient></defs>
-              <path d="M0 0 H300 L150 124 Z" fill="url(#gFlap)"/>
-              <path d="M0 0 L150 124 L300 0" stroke="#A9832A" stroke-width="1.2" vector-effect="non-scaling-stroke" fill="none"/>
-              <path d="M22 0 L150 106 L278 0" stroke="#A9832A" stroke-opacity=".5" stroke-dasharray="3 4" vector-effect="non-scaling-stroke" fill="none"/>
-            </svg>
-          </span>
-          <span class="env-seal" aria-hidden="true">
-            <!-- PLACEHOLDER: wax seal initials -->
-            <span class="seal-half seal-l"><span>N&amp;A</span></span>
-            <span class="seal-half seal-r"><span>N&amp;A</span></span>
-            <svg class="seal-crack" viewBox="0 0 100 100"><path d="M50 4 L45 22 L55 36 L44 52 L56 66 L46 82 L52 96"/></svg>
-          </span>
-        </button>
-        <div class="env-shadow" aria-hidden="true"></div>
-      </div>
-    </div>
+    <p class="t2 only-en">Nitin &amp; Amulya</p>
+    <p class="t2 only-kn kn" lang="kn">ನಿತಿನ್ ಮತ್ತು ಅಮೂಲ್ಯ</p>
   </div>
-  <p class="env-hint">
-    <span data-i18n="envTap">Tap the seal to open</span>
-  </p>
+
+  <div class="pond" aria-hidden="true"><i class="ripple"></i><i class="ripple"></i><i class="ripple"></i></div>
+  <button type="button" class="lotus-btn" id="lotusBtn" data-i18n-aria="lotusTap" aria-label="Tap the lotus to bloom">
+    <span class="lotus" id="lotus" aria-hidden="true"></span>
+  </button>
+  <p class="env-hint"><span data-i18n="lotusTap">Tap the lotus to bloom</span></p>
+  <div class="flash" id="flash" aria-hidden="true"></div>
 </div>
 
 <canvas id="petals" aria-hidden="true"></canvas>
 
+<!-- ═══ DOCK — always-reachable controls ═══ -->
+<nav class="dock" id="dock" aria-label="Quick controls">
+  <div class="player" id="player">
+    <button type="button" class="d-btn p-btn" id="playBtn" aria-pressed="false" data-i18n-aria="musicPlay" aria-label="Play music">
+      <svg class="ic i-play"><use href="#i-play"/></svg><svg class="ic i-pause"><use href="#i-pause"/></svg>
+    </button>
+  </div>
+  <div class="lang" role="group" aria-label="Language / ಭಾಷೆ">
+    <button type="button" data-lang="en" aria-pressed="false">EN</button>
+    <button type="button" data-lang="kn" lang="kn" aria-pressed="true">ಕನ್ನಡ</button>
+  </div>
+  <a class="d-btn" href="#savedate" data-i18n-aria="saveBtn" aria-label="Save the Date"><svg class="ic"><use href="#i-cal"/></svg></a>
+  <a class="d-btn" href="#rsvp" data-i18n-aria="rsvpBtn" aria-label="RSVP on WhatsApp"><svg class="ic"><use href="#i-chat"/></svg></a>
+</nav>
+<button type="button" class="music-prompt" id="musicPrompt">
+  <svg class="ic"><use href="#i-music"/></svg><span data-i18n="musicPrompt">Tap to play music</span>
+</button>
+<div class="rail" id="rail" aria-hidden="true"><span></span></div>
+
 <main id="main">
 
-<!-- ═══ 1. HERO — depth stage ═══ -->
+<!-- ═══ 1. HERO — sunrise over the Malnad hills ═══ -->
 <section class="hero" id="home" aria-labelledby="heroNames">
-  <div class="hero-stage" id="heroStage">
-    <div class="h-layer h-sky" aria-hidden="true"></div>
-    <div class="h-layer h-rays" aria-hidden="true"></div>
-    <div class="h-layer h-mandala" aria-hidden="true"><svg class="mandala" id="mandala" viewBox="0 0 600 600"></svg></div>
-    <svg class="toran" id="toran" viewBox="0 0 1200 150" preserveAspectRatio="xMidYMin slice" aria-hidden="true"></svg>
-    <div class="h-layer h-dust" aria-hidden="true"></div>
+  <div class="sky" aria-hidden="true"></div>
+  <div class="h-sun" id="sun" aria-hidden="true"><div class="sun-in" id="sunIn"><span class="rays"></span><span class="disc"></span></div></div>
+  <div class="h-clouds" id="clouds" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+  <svg class="h-birds" id="birds" viewBox="0 0 300 120" aria-hidden="true"></svg>
+  <div class="h-hills" aria-hidden="true">
+    <svg class="hill far" id="hillFar" viewBox="0 0 1440 400" preserveAspectRatio="none"></svg>
+    <svg class="hill mid" id="hillMid" viewBox="0 0 1440 400" preserveAspectRatio="none"></svg>
+    <svg class="hill near" id="hillNear" viewBox="0 0 1440 400" preserveAspectRatio="none"></svg>
+  </div>
 
-    <div class="hero-inner">
-      <p class="invocation h-anim">
-        <span class="only-en">॥ Sri Yadavalli Chowdammadevi Prasanna ॥<br>॥ Sri Venkateshwaraya Namah ॥</span>
-        <span class="kn only-kn" lang="kn">॥ ಶ್ರೀ ಯಡವಳ್ಳಿ ಚೌಡಮ್ಮದೇವಿ ಪ್ರಸನ್ನ ॥<br>॥ ಶ್ರೀ ವೆಂಕಟೇಶ್ವರಾಯ ನಮಃ ॥</span>
-      </p>
-      <p class="eyebrow blessing h-anim"><span data-i18n="heroPre">With the blessings of Late Smt. Gangamma &amp; Late Sri Muttaiah</span></p>
+  <div class="hero-inner" id="heroInner">
+    <p class="invocation h-in">
+      <span class="only-en">॥ Sri Yadavalli Chowdammadevi Prasanna ॥<br>॥ Sri Venkateshwaraya Namah ॥</span>
+      <span class="kn only-kn" lang="kn">॥ ಶ್ರೀ ಯಡವಳ್ಳಿ ಚೌಡಮ್ಮದೇವಿ ಪ್ರಸನ್ನ ॥<br>॥ ಶ್ರೀ ವೆಂಕಟೇಶ್ವರಾಯ ನಮಃ ॥</span>
+    </p>
+    <p class="blessing h-in"><span data-i18n="heroPre">With the blessings of Late Smt. Gangamma &amp; Late Sri Muttaiah</span></p>
 
-      <h1 class="names" id="heroNames">
-        <span class="n-en front only-en"><span class="shimmer">Nitin</span><span class="amp">&amp;</span><span class="shimmer">Amulya</span></span>
-        <span class="n-kn front kn only-kn" lang="kn">ನಿತಿನ್ <svg viewBox="0 0 10 10" aria-hidden="true"><use href="#i-diamond"/></svg> ಅಮೂಲ್ಯ</span>
-      </h1>
+    <h1 class="names" id="heroNames">
+      <span class="n-en only-en">
+        <span class="nm"><span class="foil foil-ink">NITIN</span></span>
+        <span class="amp"><span class="foil foil-deep">&amp;</span></span>
+        <span class="nm"><span class="foil foil-ink">AMULYA</span></span>
+      </span>
+      <span class="n-kn kn only-kn" lang="kn">
+        <span class="nm"><span class="foil foil-ink">ನಿತಿನ್</span></span>
+        <svg class="dia" viewBox="0 0 10 10" aria-hidden="true"><use href="#i-diamond"/></svg>
+        <span class="nm"><span class="foil foil-ink">ಅಮೂಲ್ಯ</span></span>
+      </span>
+    </h1>
 
-      <p class="hero-sub h-anim"><span data-i18n="heroPost">A warm invitation to you and your family</span></p>
+    <p class="hero-sub h-in"><span data-i18n="heroPost">A warm invitation to you and your family</span></p>
 
-      <h2 class="save h-anim">
-        <span class="t-en shimmer">Save the Date</span>
-        <span class="t-kn kn" lang="kn">ದಿನಾಂಕ ಕಾಯ್ದಿರಿಸಿ</span>
-      </h2>
-
-      <div class="date-row h-anim">
+    <div class="date-block h-in">
+      <p class="eyebrow save"><span class="t-en">Save the Date</span><span class="t-kn kn" lang="kn">ದಿನಾಂಕ ಕಾಯ್ದಿರಿಸಿ</span></p>
+      <div class="date-row">
         <span class="side" data-i18n="heroDay">Nov</span>
-        <span class="day">18–19</span>
+        <span class="day foil foil-gold">18–19</span>
         <span class="side" data-i18n="heroMonth">2026</span>
       </div>
-      <p class="hero-venue h-anim"><svg class="ic"><use href="#i-pin"/></svg><span data-i18n="heroVenue">Madhava Mangala Samudaya Bhavana, Shivamogga</span></p>
-
-      <div class="h-anim" id="countdownWrap">
-        <div class="countdown" id="countdown" role="timer" aria-live="off">
-          <div class="cd-cell"><span class="cd-num" data-cd="d">00</span><span class="cd-lbl" data-i18n="cdDays">Days</span></div>
-          <div class="cd-cell"><span class="cd-num" data-cd="h">00</span><span class="cd-lbl" data-i18n="cdHours">Hours</span></div>
-          <div class="cd-cell"><span class="cd-num" data-cd="m">00</span><span class="cd-lbl" data-i18n="cdMins">Mins</span></div>
-          <div class="cd-cell"><span class="cd-num" data-cd="s">00</span><span class="cd-lbl" data-i18n="cdSecs">Secs</span></div>
-        </div>
-        <p class="cd-done" id="cdDone" hidden><span data-i18n="cdDone">Thank you for celebrating with us</span></p>
-      </div>
-
-      <a class="scroll-cue h-anim" href="#couple"><span data-i18n="scrollCue">Scroll</span><svg class="ic"><use href="#i-down"/></svg></a>
+      <p class="hero-venue"><svg class="ic"><use href="#i-pin"/></svg><span data-i18n="heroVenue">Madhava Mangala Samudaya Bhavana, Shivamogga</span></p>
     </div>
+
+    <div class="h-in" id="countdownWrap">
+      <div class="countdown" id="countdown" role="timer" aria-live="off">
+        <div class="cd" data-cd="d" data-max="30"><svg viewBox="0 0 80 80" aria-hidden="true"><circle class="trk" cx="40" cy="40" r="35"/><circle class="bar" cx="40" cy="40" r="35"/></svg><span class="cd-num">00</span><span class="cd-lbl" data-i18n="cdDays">Days</span></div>
+        <div class="cd" data-cd="h" data-max="24"><svg viewBox="0 0 80 80" aria-hidden="true"><circle class="trk" cx="40" cy="40" r="35"/><circle class="bar" cx="40" cy="40" r="35"/></svg><span class="cd-num">00</span><span class="cd-lbl" data-i18n="cdHours">Hours</span></div>
+        <div class="cd" data-cd="m" data-max="60"><svg viewBox="0 0 80 80" aria-hidden="true"><circle class="trk" cx="40" cy="40" r="35"/><circle class="bar" cx="40" cy="40" r="35"/></svg><span class="cd-num">00</span><span class="cd-lbl" data-i18n="cdMins">Mins</span></div>
+        <div class="cd" data-cd="s" data-max="60"><svg viewBox="0 0 80 80" aria-hidden="true"><circle class="trk" cx="40" cy="40" r="35"/><circle class="bar" cx="40" cy="40" r="35"/></svg><span class="cd-num">00</span><span class="cd-lbl" data-i18n="cdSecs">Secs</span></div>
+      </div>
+      <p class="cd-done" id="cdDone" hidden><span data-i18n="cdDone">Thank you for celebrating with us</span></p>
+    </div>
+
+    <a class="scroll-cue h-in" href="#verse"><span data-i18n="scrollCue">Scroll</span><svg class="ic"><use href="#i-down"/></svg></a>
   </div>
 </section>
 
-<!-- ═══ VERSE (Kuvempu) ═══ -->
-<section class="section verse-sec" aria-label="Verse">
-  <div class="verse-wrap" data-rv="up">
-    <figure class="verse">
-      <blockquote><p data-i18n="verseText">A whole human lifetime is one auspicious moment. Marriage is a path to walk together, not a house to arrive at. What keeps husband and wife living as one is love alone — love is the bond.</p></blockquote>
-      <figcaption><span data-i18n="verseBy">— Rashtrakavi Kuvempu</span></figcaption>
-    </figure>
+<!-- ═══ 2. VERSE — words ink in as you scroll ═══ -->
+<section class="verse" id="verse" aria-label="Verse">
+  <div class="verse-in">
+    <span class="q" aria-hidden="true">&ldquo;</span>
+    <blockquote><p class="verse-text" id="verseText" data-i18n="verseText">A whole human lifetime is one auspicious moment. Marriage is a path to walk together, not a house to arrive at. What keeps husband and wife living as one is love alone — love is the bond.</p></blockquote>
+    <p class="verse-by" data-rv><span data-i18n="verseBy">— Rashtrakavi Kuvempu</span></p>
   </div>
 </section>
 
-<!-- ═══ 2. COUPLE ═══ -->
-<section class="section" id="couple" aria-labelledby="coupleTitle">
-  <header class="sec-head" data-rv="title">
+<!-- ═══ 3. COUPLE — two arches, one garland ═══ -->
+<section class="couple" id="couple" aria-labelledby="coupleTitle">
+  <header class="sec-head" data-rv>
     <p class="eyebrow"><span data-i18n="coupleEyebrow">Two souls, one journey</span></p>
-    <svg class="orn" aria-hidden="true"><use href="#orn"/></svg>
-    <h2 class="sec-title" id="coupleTitle"><span class="t-en shimmer">The Groom &amp; Bride</span><span class="t-kn kn" lang="kn">ವರ ಮತ್ತು ವಧು</span></h2>
+    <h2 class="sec-title" id="coupleTitle"><span class="t-en">The Groom &amp; Bride</span><span class="t-kn kn" lang="kn">ವರ ಮತ್ತು ವಧು</span></h2>
     <p class="poem"><span data-i18n="couplePoem">As two hearts become one and two families unite in joy, may your blessings be with us as we walk the seven steps of our new journey together.</span></p>
   </header>
 
-  <div class="couple-grid">
-    <div class="tilt-wrap" data-rv="up" style="--d:.05s">
-      <article class="person tilt" data-tilt>
-        <div class="frame">
+  <div class="pair" id="pair">
+    <svg class="garland" id="garland" aria-hidden="true"></svg>
+
+    <article class="who who-g">
+      <div class="arch" data-rv>
+        <div class="arch-in">
           <!-- groom.jpg: square 600×600 crop, must sit in the same folder as this HTML file -->
           <img src="groom.jpg" width="600" height="600" alt="Portrait of Nitin, the groom" data-i18n-alt="groomAlt" loading="lazy" decoding="async">
         </div>
+      </div>
+      <div class="who-txt" data-rv>
         <p class="role"><span data-i18n="groomRole">The Groom</span></p>
-        <h3 class="p-name"><span class="script shimmer only-en">Nitin V</span><span class="kn only-kn" lang="kn">ಚಿ॥ ರಾ॥ ನಿತಿನ್ ವಿ.</span></h3>
+        <h3 class="p-name"><span class="en only-en">Nitin V</span><span class="kn only-kn" lang="kn">ಚಿ॥ ರಾ॥ ನಿತಿನ್ ವಿ.</span></h3>
         <p class="bio"><span data-i18n="groomBio">B.E. Computer Science</span></p>
         <p class="parents"><span data-i18n="groomParents">Eldest son of Smt. Yashoda &amp; Sri Venkatesh (Ex-BSF), Mysuru</span></p>
-      </article>
-    </div>
+      </div>
+    </article>
 
-    <div class="couple-amp" data-rv="pop" style="--d:.15s" aria-hidden="true"><span class="only-en">&amp;</span><svg class="only-kn" viewBox="0 0 10 10"><use href="#i-diamond"/></svg></div>
-
-    <div class="tilt-wrap" data-rv="up" style="--d:.2s">
-      <article class="person tilt" data-tilt>
-        <div class="frame">
+    <article class="who who-b">
+      <div class="arch" data-rv>
+        <div class="arch-in">
           <!-- bride.jpg: square 600×600 crop, must sit in the same folder as this HTML file -->
           <img src="bride.jpg" width="600" height="600" alt="Portrait of Amulya, the bride" data-i18n-alt="brideAlt" loading="lazy" decoding="async">
         </div>
+      </div>
+      <div class="who-txt" data-rv>
         <p class="role"><span data-i18n="brideRole">The Bride</span></p>
-        <h3 class="p-name"><span class="script shimmer only-en">Amulya K S</span><span class="kn only-kn" lang="kn">ಚಿ॥ ಸೌ॥ ಅಮೂಲ್ಯ ಕೆ. ಎಸ್.</span></h3>
+        <h3 class="p-name"><span class="en only-en">Amulya K S</span><span class="kn only-kn" lang="kn">ಚಿ॥ ಸೌ॥ ಅಮೂಲ್ಯ ಕೆ. ಎಸ್.</span></h3>
         <p class="bio"><span data-i18n="brideBio">B.E. Civil Engineering</span></p>
         <p class="parents"><span data-i18n="brideParents">Eldest daughter of Smt. Sridevi &amp; Sri Sharanappa Olekara (Retd. Agriculture Officer, Dept. of Agriculture), Shivamogga</span></p>
-      </article>
-    </div>
+      </div>
+    </article>
   </div>
 </section>
 
-<!-- ═══ 3. EVENTS TIMELINE ═══ -->
-<section class="section" id="events" aria-labelledby="eventsTitle">
-  <header class="sec-head" data-rv="title">
-    <p class="eyebrow"><span data-i18n="eventsEyebrow">Join us for</span></p>
-    <svg class="orn" aria-hidden="true"><use href="#orn"/></svg>
-    <h2 class="sec-title" id="eventsTitle"><span class="t-en shimmer">Wedding Celebrations</span><span class="t-kn kn" lang="kn">ವಿವಾಹ ಮಹೋತ್ಸವ</span></h2>
-  </header>
+<!-- names + date ribbon -->
+<div class="ribbon" aria-hidden="true">
+  <div class="rb-track">
+    <span>NITIN <i>◆</i> AMULYA <i>◆</i> 18 · 19 NOVEMBER 2026 <i>◆</i> SHIVAMOGGA <i>◆</i></span>
+    <span>NITIN <i>◆</i> AMULYA <i>◆</i> 18 · 19 NOVEMBER 2026 <i>◆</i> SHIVAMOGGA <i>◆</i></span>
+    <span>NITIN <i>◆</i> AMULYA <i>◆</i> 18 · 19 NOVEMBER 2026 <i>◆</i> SHIVAMOGGA <i>◆</i></span>
+    <span>NITIN <i>◆</i> AMULYA <i>◆</i> 18 · 19 NOVEMBER 2026 <i>◆</i> SHIVAMOGGA <i>◆</i></span>
+  </div>
+</div>
 
-  <div class="tl-wrap" id="timeline">
-    <div class="tl-line" aria-hidden="true"><span class="tl-fill" id="tlFill"></span></div>
-    <ol class="timeline">
-      <li class="tl-item" data-rv="side">
-        <div class="tl-dot" aria-hidden="true"><svg class="ic"><use href="#i-sparkle"/></svg></div>
-        <article class="tl-card">
-          <h3 class="ev-title"><span class="t-en shimmer">Reception</span><span class="t-kn kn" lang="kn">ಆರತಕ್ಷತೆ</span></h3>
+<!-- ═══ 4. EVENTS — the sky portal: Reception at dusk → night → Muhurtha at dawn ═══ -->
+<section class="portal" id="events" aria-labelledby="eventsTitle">
+  <div class="portal-stick">
+    <header class="sec-head">
+      <p class="eyebrow"><span data-i18n="eventsEyebrow">Join us for</span></p>
+      <h2 class="sec-title" id="eventsTitle"><span class="t-en">Wedding Celebrations</span><span class="t-kn kn" lang="kn">ವಿವಾಹ ಮಹೋತ್ಸವ</span></h2>
+    </header>
+
+    <div class="portal-stage">
+      <div class="orb-wrap" aria-hidden="true">
+        <svg class="orb-ring" id="orbRing" viewBox="0 0 220 220"></svg>
+        <div class="orb" id="orb">
+          <div class="orb-sky" id="orbSky">
+            <span class="o-stars"></span><span class="o-stars b"></span>
+            <span class="o-moon" id="oMoon"></span>
+            <span class="o-sun" id="oSun"></span>
+            <svg class="o-hills" id="oHills" viewBox="0 0 200 90" preserveAspectRatio="none"></svg>
+          </div>
+        </div>
+      </div>
+
+      <div class="evs" id="evs">
+        <article class="ev ev-0">
+          <p class="ev-day"><b class="n foil foil-gold">18</b><span class="ev-date" data-i18n="rcDate">Wednesday, 18 November 2026</span></p>
+          <h3 class="ev-title"><span class="t-en">Reception</span><span class="t-kn kn" lang="kn">ಆರತಕ್ಷತೆ</span></h3>
           <ul class="meta">
-            <li><svg class="ic"><use href="#i-cal"/></svg><span data-i18n="rcDate">Wednesday, 18 November 2026</span></li>
             <li><svg class="ic"><use href="#i-clock"/></svg><span data-i18n="rcTime">7:30 PM</span></li>
             <li><svg class="ic"><use href="#i-pin"/></svg><span data-i18n="evVenue">Madhava Mangala Samudaya Bhavana, Shivamogga</span></li>
           </ul>
         </article>
-      </li>
-      <li class="tl-item" data-rv="side">
-        <div class="tl-dot" aria-hidden="true"><svg class="ic"><use href="#i-rings"/></svg></div>
-        <article class="tl-card">
-          <h3 class="ev-title"><span class="t-en shimmer">Dhaaraa Muhurtha</span><span class="t-kn kn" lang="kn">ಧಾರಾಮುಹೂರ್ತ</span></h3>
+        <article class="ev ev-1">
+          <p class="ev-day"><b class="n foil foil-gold">19</b><span class="ev-date" data-i18n="muDate">Thursday, 19 November 2026</span></p>
+          <h3 class="ev-title"><span class="t-en">Dhaaraa Muhurtha</span><span class="t-kn kn" lang="kn">ಧಾರಾಮುಹೂರ್ತ</span></h3>
           <ul class="meta">
-            <li><svg class="ic"><use href="#i-cal"/></svg><span data-i18n="muDate">Thursday, 19 November 2026</span></li>
             <li><svg class="ic"><use href="#i-clock"/></svg><span data-i18n="muTime">9:30 AM – 10:30 AM</span></li>
             <li><svg class="ic"><use href="#i-sparkle"/></svg><span data-i18n="muLagna">Dhanur Lagna</span></li>
             <li><svg class="ic"><use href="#i-pin"/></svg><span data-i18n="evVenue">Madhava Mangala Samudaya Bhavana, Shivamogga</span></li>
           </ul>
           <p class="dress"><span data-i18n="muNote">Parabhava Samvatsara · Dakshinayana · Sharad Ritu · Kartika Masa · Shukla Paksha Dashami</span></p>
         </article>
-      </li>
-    </ol>
+      </div>
+    </div>
+
+    <div class="ev-tabs" id="evTabs" role="group" aria-label="Events">
+      <button type="button" data-i="0" aria-pressed="true"><span class="t-en">Reception</span><span class="t-kn kn" lang="kn">ಆರತಕ್ಷತೆ</span></button>
+      <button type="button" data-i="1" aria-pressed="false"><span class="t-en">Dhaaraa Muhurtha</span><span class="t-kn kn" lang="kn">ಧಾರಾಮುಹೂರ್ತ</span></button>
+    </div>
   </div>
 </section>
 
-<!-- ═══ 3b. SAVE THE DATE — tear-off wall calendar ═══ -->
-<section class="section cal-sec" id="savedate" aria-labelledby="savedateTitle">
-  <header class="sec-head" data-rv="title">
-    <p class="eyebrow"><span data-i18n="calEyebrow">Mark your calendar</span></p>
-    <svg class="orn" aria-hidden="true"><use href="#orn"/></svg>
-    <h2 class="sec-title" id="savedateTitle"><span class="t-en shimmer">Save the Date</span><span class="t-kn kn" lang="kn">ದಿನಾಂಕ ಕಾಯ್ದಿರಿಸಿ</span></h2>
-  </header>
+<!-- ═══ 5. SAVE THE DATE — two hearts become one ═══ -->
+<section class="hearts" id="savedate" aria-labelledby="savedateTitle">
+  <div class="hearts-stick">
+    <header class="sec-head">
+      <p class="eyebrow"><span data-i18n="calEyebrow">Mark your calendar</span></p>
+      <h2 class="sec-title" id="savedateTitle"><span class="t-en">Save the Date</span><span class="t-kn kn" lang="kn">ದಿನಾಂಕ ಕಾಯ್ದಿರಿಸಿ</span></h2>
+    </header>
 
-  <div class="cal-wrap tilt-wrap" data-rv="up">
-    <div class="cal tilt" id="calCard" data-tilt="7" role="img" data-i18n-aria="calAria" aria-label="Calendar for November 2026 with 18 and 19 November marked">
-      <svg class="cal-cord" viewBox="0 0 100 60" preserveAspectRatio="none" aria-hidden="true"><line x1="50" y1="6" x2="12" y2="60" vector-effect="non-scaling-stroke"/><line x1="50" y1="6" x2="88" y2="60" vector-effect="non-scaling-stroke"/></svg>
-      <span class="cal-nail" aria-hidden="true"></span>
-      <div class="cal-rings" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
+    <div class="hearts-stage" id="heartsStage">
+      <svg class="hearts-svg" id="heartsSvg" viewBox="-220 -170 440 340" role="img" data-i18n-aria="heartsAria" aria-label="Two hearts coming together as one, with the dates 18 and 19 November 2026"></svg>
+      <p class="hearts-hint" id="heartsHint" aria-hidden="true"><span data-i18n="scrollCue">Scroll</span><svg class="ic"><use href="#i-down"/></svg></p>
+    </div>
 
-      <!-- the page that stays: November -->
-      <div class="cal-page" aria-hidden="true">
-        <div class="cal-photo"><img src="gallery-1.jpg" width="853" height="1280" alt="" loading="lazy" decoding="async"></div>
-        <div class="cal-body">
-          <div class="cal-title"><span data-i18n="calNov">November</span><b id="calYear">2026</b></div>
-          <div class="cal-gridwrap" id="calGridWrap">
-            <div class="cal-grid" id="calGrid"></div>
-            <svg class="cal-mark" id="calMark"></svg>
-          </div>
-          <ul class="cal-legend">
-            <li><b class="n">18</b><span class="nm"><span class="t-en">Reception</span><span class="t-kn kn" lang="kn">ಆರತಕ್ಷತೆ</span></span><em data-i18n="rcTime">7:30 PM</em></li>
-            <li><b class="n">19</b><span class="nm"><span class="t-en">Dhaaraa Muhurtha</span><span class="t-kn kn" lang="kn">ಧಾರಾಮುಹೂರ್ತ</span></span><em data-i18n="muTime">9:30 AM – 10:30 AM</em></li>
-          </ul>
-        </div>
-      </div>
-
-      <!-- the sheet that tears off: October -->
-      <div class="cal-sheet" id="calSheet" aria-hidden="true">
-        <div class="cal-face cal-front">
-          <div class="cal-photo"><img src="gallery-3.jpg" width="853" height="1280" alt="" loading="lazy" decoding="async"></div>
-          <div class="cal-body">
-            <div class="cal-title"><span data-i18n="calOct">October</span><b>2026</b></div>
-            <div class="cal-gridwrap"><div class="cal-grid" id="calGridPrev"></div></div>
-          </div>
-          <div class="cal-notes"></div>
-        </div>
-        <div class="cal-face cal-back"></div>
-      </div>
+    <div class="hearts-info" id="heartsInfo">
+      <ul class="h-list">
+        <li><b>18</b><span class="h-nm2"><span class="t-en">Reception</span><span class="t-kn kn" lang="kn">ಆರತಕ್ಷತೆ</span></span><em data-i18n="rcTime">7:30 PM</em></li>
+        <li><b>19</b><span class="h-nm2"><span class="t-en">Dhaaraa Muhurtha</span><span class="t-kn kn" lang="kn">ಧಾರಾಮುಹೂರ್ತ</span></span><em data-i18n="muTime">9:30 AM – 10:30 AM</em></li>
+      </ul>
+      <p class="h-count" id="calCount" hidden></p>
+      <a class="btn btn-gold" id="icsBtn" href="nitin-amulya-save-the-date.ics" download="Nitin-Amulya-Wedding.ics">
+        <svg class="ic"><use href="#i-cal"/></svg><span data-i18n="saveBtn">Save the Date</span>
+      </a>
     </div>
   </div>
+</section>
 
-  <div class="cal-actions" data-rv="up">
-    <p class="cal-count" id="calCount" hidden></p>
-    <a class="btn btn-gold" id="icsBtn" href="nitin-amulya-save-the-date.ics" download="Nitin-Amulya-Wedding.ics">
-      <svg class="ic"><use href="#i-cal"/></svg><span data-i18n="saveBtn">Save the Date</span>
-    </a>
+<div class="cal-after-wrap">
+  <div class="cal-after">
     <p class="cal-note" id="calNote" aria-live="polite"><span data-i18n="remindNote">Adds both events, with reminders</span></p>
     <div class="cal-chips">
       <span data-i18n="gcal">Google Calendar</span>
@@ -359,104 +335,70 @@ catch (e) { document.body.classList.add('lang-kn'); }</script>
       <a class="chip" id="gcalMu" href="#" target="_blank" rel="noopener"><span class="t-en">Dhaaraa Muhurtha</span><span class="t-kn kn" lang="kn">ಧಾರಾಮುಹೂರ್ತ</span></a>
     </div>
   </div>
-</section>
+</div>
 
-<!-- ═══ 4. VENUE — the palace gates ═══ -->
-<section class="gates" id="venue" aria-labelledby="venueTitle">
-  <div class="gates-sticky">
-    <header class="sec-head">
+
+<!-- ═══ 6. VENUE — golden hour at the temple ═══ -->
+<section class="venue" id="venue" aria-labelledby="venueTitle">
+  <div class="venue-top">
+    <header class="sec-head" data-rv>
       <p class="eyebrow"><span data-i18n="venueEyebrow">Where hearts unite</span></p>
-      <svg class="orn" aria-hidden="true"><use href="#orn"/></svg>
-      <h2 class="sec-title" id="venueTitle"><span class="t-en shimmer">The Venue</span><span class="t-kn kn" lang="kn">ವಿವಾಹ ಸ್ಥಳ</span></h2>
+      <h2 class="sec-title" id="venueTitle"><span class="t-en">The Venue</span><span class="t-kn kn" lang="kn">ವಿವಾಹ ಸ್ಥಳ</span></h2>
     </header>
-
-    <div class="gate" id="gate">
-      <div class="gate-glow" aria-hidden="true"></div>
-      <div class="gate-frame">
-        <div class="gate-arch">
-          <span class="venue-icon" aria-hidden="true"><svg class="ic" viewBox="0 0 48 48"><use href="#i-temple"/></svg></span>
-          <h3 class="venue-name"><span class="t-en shimmer">Madhava Mangala Samudaya Bhavana</span><span class="t-kn kn" lang="kn">ಮಾಧವ ಮಂಗಲ ಸಮುದಾಯ ಭವನ</span></h3>
-          <p class="venue-addr"><span data-i18n="venueAddr">Near Delhi World School, Malligenahalli, Sagara Road, Shivamogga</span></p>
-        </div>
-      </div>
-      <div class="doors" aria-hidden="true">
-        <div class="door door-l" id="doorL"><span class="door-studs"></span><span class="door-panels"><i></i><i></i><i></i></span><svg class="door-medal" viewBox="0 0 100 100"><use href="#i-medallion"/></svg><span class="door-knock"></span><span class="door-shade"></span></div>
-        <div class="door door-r" id="doorR"><span class="door-studs"></span><span class="door-panels"><i></i><i></i><i></i></span><svg class="door-medal" viewBox="0 0 100 100"><use href="#i-medallion"/></svg><span class="door-knock"></span><span class="door-shade"></span></div>
+    <div class="v-name" data-rv>
+      <h3 class="venue-name"><span class="t-en">Madhava Mangala Samudaya Bhavana</span><span class="t-kn kn" lang="kn">ಮಾಧವ ಮಂಗಲ ಸಮುದಾಯ ಭವನ</span></h3>
+      <p class="venue-addr"><span data-i18n="venueAddr">Near Delhi World School, Malligenahalli, Sagara Road, Shivamogga</span></p>
+      <p class="venue-note"><span data-i18n="venueNote">Reception &amp; Muhurtha both at this venue</span></p>
+      <div class="btn-row">
+        <a class="btn btn-gold" id="mapsBtn" href="https://maps.app.goo.gl/At1sjp7Z1KuVZm436" target="_blank" rel="noopener">
+          <svg class="ic"><use href="#i-map"/></svg><span data-i18n="mapsBtn">Open in Google Maps</span>
+        </a>
+        <a class="btn btn-ghost" id="calBtn" href="#" target="_blank" rel="noopener">
+          <svg class="ic"><use href="#i-cal"/></svg><span data-i18n="calBtn">Add to Calendar</span>
+        </a>
       </div>
     </div>
-
-    <p class="gate-hint" id="gateHint" aria-hidden="true"><span data-i18n="scrollCue">Scroll</span><svg class="ic"><use href="#i-down"/></svg></p>
+  </div>
+  <div class="scene" id="scene" aria-hidden="true">
+    <div class="sc-sun"></div>
+    <svg class="sc-svg" id="sceneSvg" viewBox="0 0 1440 560" preserveAspectRatio="xMidYMax slice"></svg>
+    <div class="sc-glow"></div>
   </div>
 </section>
 
-<section class="section venue-after" aria-label="Venue details">
-  <p class="venue-note" data-rv="up"><span data-i18n="venueNote">Reception &amp; Muhurtha both at this venue</span></p>
-  <div class="btn-row" data-rv="up" style="--d:.1s">
-    <a class="btn btn-gold" id="mapsBtn" href="https://maps.app.goo.gl/At1sjp7Z1KuVZm436" target="_blank" rel="noopener">
-      <svg class="ic"><use href="#i-map"/></svg><span data-i18n="mapsBtn">Open in Google Maps</span>
-    </a>
-    <a class="btn btn-ghost" id="calBtn" href="#" target="_blank" rel="noopener">
-      <svg class="ic"><use href="#i-cal"/></svg><span data-i18n="calBtn">Add to Calendar</span>
-    </a>
-  </div>
-</section>
-
-<!-- ═══ 5. GALLERY — 3D coverflow ═══ -->
-<section class="section gallery" id="gallery" aria-labelledby="galleryTitle">
-  <header class="sec-head" data-rv="title">
+<!-- ═══ 7. GALLERY — a deck of polaroids to flick through ═══ -->
+<section class="moments" id="gallery" aria-labelledby="galleryTitle">
+  <header class="sec-head" data-rv>
     <p class="eyebrow"><span data-i18n="galleryEyebrow">Our story in frames</span></p>
-    <svg class="orn" aria-hidden="true"><use href="#orn"/></svg>
-    <h2 class="sec-title" id="galleryTitle"><span class="t-en shimmer">Moments Together</span><span class="t-kn kn" lang="kn">ಜೊತೆಯಾದ ಕ್ಷಣಗಳು</span></h2>
+    <h2 class="sec-title" id="galleryTitle"><span class="t-en">Moments Together</span><span class="t-kn kn" lang="kn">ಜೊತೆಯಾದ ಕ್ಷಣಗಳು</span></h2>
   </header>
 
-  <div data-rv="up">
-    <div class="cf" id="cf" tabindex="0" role="group" aria-roledescription="carousel" aria-label="Photo gallery">
-      <div class="cf-stage" id="cfStage">
-        <!-- gallery-N.jpg: full photos, must sit in the same folder as this HTML file. The carousel crops them to 3:4; the lightbox shows them uncropped. -->
-        <figure class="cf-item"><button type="button" class="g-open" data-i="0"><img src="gallery-1.jpg" width="853" height="1280" alt="Nitin and Amulya smiling together as they hold a lantern" decoding="async"></button></figure>
-        <figure class="cf-item"><button type="button" class="g-open" data-i="1"><img src="gallery-2.jpg" width="1280" height="853" style="object-position:47% 50%" alt="Nitin and Amulya standing back to back in front of a vintage camera shop" decoding="async"></button></figure>
-        <figure class="cf-item"><button type="button" class="g-open" data-i="2"><img src="gallery-3.jpg" width="853" height="1280" alt="Nitin and Amulya walking together outside a cafe" decoding="async"></button></figure>
-        <figure class="cf-item"><button type="button" class="g-open" data-i="3"><img src="gallery-4.jpg" width="853" height="1280" alt="Nitin and Amulya walking hand in hand along a flower-lined street" decoding="async"></button></figure>
-        <figure class="cf-item"><button type="button" class="g-open" data-i="4"><img src="gallery-5.jpg" width="853" height="1280" style="object-position:50% 42%" alt="Nitin in a pale yellow kurta and Amulya in a white and gold saree, sitting together on a porch step" decoding="async"></button></figure>
-        <div class="cf-floor" aria-hidden="true"></div>
-      </div>
+  <div class="deck-wrap" data-rv>
+    <div class="deck" id="deck" tabindex="0" role="group" aria-roledescription="carousel" aria-label="Photo gallery">
+      <!-- gallery-N.jpg: full photos, must sit in the same folder as this HTML file. The deck crops them to 3:4; the lightbox shows them uncropped. -->
+      <figure class="pol"><button type="button" class="g-open" data-i="0"><img src="gallery-1.jpg" width="853" height="1280" alt="Nitin and Amulya smiling together as they hold a lantern" decoding="async"></button></figure>
+      <figure class="pol"><button type="button" class="g-open" data-i="1"><img src="gallery-2.jpg" width="1280" height="853" style="object-position:47% 50%" alt="Nitin and Amulya standing back to back in front of a vintage camera shop" decoding="async"></button></figure>
+      <figure class="pol"><button type="button" class="g-open" data-i="2"><img src="gallery-3.jpg" width="853" height="1280" alt="Nitin and Amulya walking together outside a cafe" decoding="async"></button></figure>
+      <figure class="pol"><button type="button" class="g-open" data-i="3"><img src="gallery-4.jpg" width="853" height="1280" alt="Nitin and Amulya walking hand in hand along a flower-lined street" decoding="async"></button></figure>
+      <figure class="pol"><button type="button" class="g-open" data-i="4"><img src="gallery-5.jpg" width="853" height="1280" style="object-position:50% 42%" alt="Nitin in a pale yellow kurta and Amulya in a white and gold saree, sitting together on a porch step" decoding="async"></button></figure>
     </div>
-    <div class="cf-dots" id="cfDots" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
     <div class="g-nav">
       <button type="button" class="g-btn" id="gPrev" data-i18n-aria="galPrev" aria-label="Previous photo"><svg class="ic"><use href="#i-left"/></svg></button>
-      <span class="g-hint"><span data-i18n="galleryHint">Swipe or tap a photo</span></span>
+      <span class="g-hint"><span class="g-count" id="gCount">1 / 5</span><span data-i18n="galleryHint">Swipe or tap a photo</span></span>
       <button type="button" class="g-btn" id="gNext" data-i18n-aria="galNext" aria-label="Next photo"><svg class="ic"><use href="#i-right"/></svg></button>
     </div>
   </div>
 </section>
 
-<!-- ═══ 6. RSVP ═══ -->
-<section class="section" id="rsvp" aria-labelledby="rsvpTitle">
-  <div class="rsvp-wrap" data-rv="up">
-    <div class="rsvp-card tilt" data-tilt="6" id="rsvpCard">
-      <p class="eyebrow"><span data-i18n="rsvpEyebrow">Kindly respond</span></p>
-      <svg class="orn" aria-hidden="true"><use href="#orn"/></svg>
-      <h2 class="sec-title" id="rsvpTitle"><span class="t-en shimmer">We'd Love to See You There</span><span class="t-kn kn" lang="kn">ನಿಮ್ಮ ಆಗಮನವನ್ನು ಎದುರು ನೋಡುತ್ತಿದ್ದೇವೆ</span></h2>
-      <p class="rsvp-text" style="margin-top:20px"><span data-i18n="rsvpText">On this auspicious occasion, we lovingly invite you and your family to attend our children's wedding, bless the newly-wed couple and shower them with your blessings.</span></p>
-      <a class="btn-seal" id="rsvpBtn" href="https://wa.me/918951813296" target="_blank" rel="noopener">
-        <span class="seal-dot" aria-hidden="true"><svg class="ic"><use href="#i-chat"/></svg></span>
-        <span data-i18n="rsvpBtn">RSVP on WhatsApp</span>
-      </a>
-    </div>
-  </div>
-</section>
-
-<!-- ═══ FAMILIES ═══ -->
-<section class="section" id="families" aria-labelledby="familiesTitle">
-  <header class="sec-head" data-rv="title">
+<!-- ═══ 8. FAMILIES — set like a printed invitation ═══ -->
+<section class="fam" id="families" aria-labelledby="familiesTitle">
+  <header class="sec-head" data-rv>
     <p class="eyebrow"><span data-i18n="familiesEyebrow">With love from both families</span></p>
-    <svg class="orn" aria-hidden="true"><use href="#orn"/></svg>
-    <h2 class="sec-title" id="familiesTitle"><span class="t-en shimmer">Awaiting Your Presence</span><span class="t-kn kn" lang="kn">ತಮ್ಮ ಆಗಮನಾಭಿಲಾಷಿಗಳು</span></h2>
+    <h2 class="sec-title" id="familiesTitle"><span class="t-en">Awaiting Your Presence</span><span class="t-kn kn" lang="kn">ತಮ್ಮ ಆಗಮನಾಭಿಲಾಷಿಗಳು</span></h2>
   </header>
 
-  <div class="hosts-grid">
-    <div class="tilt-wrap" data-rv="up" style="--d:.05s">
-    <div class="host-card tilt" data-tilt="5">
+  <div class="fam-grid">
+    <div class="fam-col" data-rv>
       <h3 class="host-title"><span data-i18n="groomSide">Groom's family</span></h3>
       <ul class="host-list only-en">
         <li class="em">Smt. Yashoda</li>
@@ -471,9 +413,8 @@ catch (e) { document.body.classList.add('lang-kn'); }</script>
         <li>ಕು॥ ಚಂದನ ವಿ., ಬಿ.ಟೆಕ್. (ಇ.ಇ.ಇ.)</li>
       </ul>
     </div>
-    </div>
-    <div class="tilt-wrap" data-rv="up" style="--d:.15s">
-    <div class="host-card tilt" data-tilt="5">
+    <div class="fam-mid" aria-hidden="true"><svg class="ic"><use href="#i-diamond"/></svg></div>
+    <div class="fam-col" data-rv style="--d:.12s">
       <h3 class="host-title"><span data-i18n="brideSide">Bride's family</span></h3>
       <ul class="host-list only-en">
         <li class="em">Smt. Sridevi</li>
@@ -488,42 +429,62 @@ catch (e) { document.body.classList.add('lang-kn'); }</script>
         <li>ಶಿವಮೊಗ್ಗ</li>
       </ul>
     </div>
-    </div>
   </div>
 
-  <div class="tilt-wrap wishers" data-rv="up">
-    <div class="host-card tilt" data-tilt="4">
-      <h3 class="host-title"><span data-i18n="wishersTitle">Wishing for your joyful arrival</span></h3>
-      <ul class="host-list only-en">
-        <li>Smt. Sakamma &amp; Sri Giriyappa and family</li>
-        <li>Smt. Manjula &amp; Sri Munivenkatesh</li>
-        <li>Relatives &amp; friends</li>
-      </ul>
-      <ul class="host-list kn only-kn" lang="kn">
-        <li>ಶ್ರೀಮತಿ ಸಾಕಮ್ಮ ಮತ್ತು ಶ್ರೀ ಗಿರಿಯಪ್ಪ, ಕುಟುಂಬದವರು</li>
-        <li>ಶ್ರೀಮತಿ ಮಂಜುಳ ಮತ್ತು ಶ್ರೀ ಮುನಿವೆಂಕಟೇಶ್</li>
-        <li>ಬಂಧು-ಮಿತ್ರರು</li>
-      </ul>
+  <div class="wishers" data-rv>
+    <h3 class="host-title"><span data-i18n="wishersTitle">Wishing for your joyful arrival</span></h3>
+    <ul class="host-list only-en">
+      <li>Smt. Sakamma &amp; Sri Giriyappa and family</li>
+      <li>Smt. Manjula &amp; Sri Munivenkatesh</li>
+      <li>Relatives &amp; friends</li>
+    </ul>
+    <ul class="host-list kn only-kn" lang="kn">
+      <li>ಶ್ರೀಮತಿ ಸಾಕಮ್ಮ ಮತ್ತು ಶ್ರೀ ಗಿರಿಯಪ್ಪ, ಕುಟುಂಬದವರು</li>
+      <li>ಶ್ರೀಮತಿ ಮಂಜುಳ ಮತ್ತು ಶ್ರೀ ಮುನಿವೆಂಕಟೇಶ್</li>
+      <li>ಬಂಧು-ಮಿತ್ರರು</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ═══ 9. FINALE — night, lanterns, RSVP ═══ -->
+<section class="finale" id="rsvp" aria-labelledby="rsvpTitle">
+  <div class="night" aria-hidden="true">
+    <span class="f-stars"></span><span class="f-stars b"></span>
+    <span class="f-moon"></span>
+    <div class="lanterns" id="lanterns"></div>
+  </div>
+
+  <div class="finale-in">
+    <header class="sec-head" data-rv>
+      <p class="eyebrow"><span data-i18n="rsvpEyebrow">Kindly respond</span></p>
+      <h2 class="sec-title" id="rsvpTitle"><span class="t-en">We'd Love to See You There</span><span class="t-kn kn" lang="kn">ನಿಮ್ಮ ಆಗಮನವನ್ನು ಎದುರು ನೋಡುತ್ತಿದ್ದೇವೆ</span></h2>
+    </header>
+    <p class="rsvp-text" data-rv><span data-i18n="rsvpText">On this auspicious occasion, we lovingly invite you and your family to attend our children's wedding, bless the newly-wed couple and shower them with your blessings.</span></p>
+
+    <div class="lamp-wrap" data-rv>
+      <a class="lamp" id="rsvpBtn" href="https://wa.me/918951813296" target="_blank" rel="noopener">
+        <span class="lamp-glow" aria-hidden="true"></span>
+        <span class="lamp-dot" aria-hidden="true"><svg class="ic"><use href="#i-chat"/></svg></span>
+        <span class="lamp-txt" data-i18n="rsvpBtn">RSVP on WhatsApp</span>
+      </a>
     </div>
+
+    <footer class="footer">
+      <p class="footer-note" data-rv><span data-i18n="footerNote">Your arrival is the only gift we wish for. Your presence is our joy.</span></p>
+      <span class="with only-en" data-rv>With love,</span>
+      <span class="with-kn only-kn" lang="kn" data-rv>ಪ್ರೀತಿಯಿಂದ</span>
+      <p class="family" data-rv><span class="t-en">Smt. Yashoda &amp; Sri Venkatesh</span><span class="t-kn" lang="kn">ಶ್ರೀಮತಿ ಯಶೋದ ಮತ್ತು ಶ್ರೀ ವೆಂಕಟೇಶ್</span></p>
+      <p class="footer-addr"><span data-i18n="footerAddr">Malenada Nilaya, Sri Mahalakshmi Drushti Enclave, J.P. Nagar, Mysuru</span></p>
+      <div class="contact-row">
+        <a class="btn btn-night" href="tel:+919449313296"><svg class="ic"><use href="#i-phone"/></svg>94493 13296</a>
+        <a class="btn btn-night" href="tel:+918951813296"><svg class="ic"><use href="#i-phone"/></svg>89518 13296</a>
+      </div>
+      <span class="hashtag only-en">#NitinWedsAmulya</span><span class="hashtag only-kn" lang="kn">#ನಿತಿನ್_ಅಮೂಲ್ಯ</span>
+    </footer>
   </div>
 </section>
 
 </main>
-
-<!-- ═══ 7. FOOTER ═══ -->
-<footer class="footer">
-  <p class="footer-note" data-rv="up"><span data-i18n="footerNote">Your arrival is the only gift we wish for. Your presence is our joy.</span></p>
-  <svg class="orn" aria-hidden="true"><use href="#orn"/></svg>
-  <span class="with shimmer only-en" data-rv="pop">With love,</span>
-  <span class="with-kn only-kn" lang="kn" data-rv="pop">ಪ್ರೀತಿಯಿಂದ</span>
-  <p class="family" data-rv="up"><span class="t-en">Smt. Yashoda &amp; Sri Venkatesh</span><span class="t-kn" lang="kn">ಶ್ರೀಮತಿ ಯಶೋದ ಮತ್ತು ಶ್ರೀ ವೆಂಕಟೇಶ್</span></p>
-  <p class="footer-addr"><span data-i18n="footerAddr">Malenada Nilaya, Sri Mahalakshmi Drushti Enclave, J.P. Nagar, Mysuru</span></p>
-  <div class="contact-row">
-    <a class="btn btn-ghost" href="tel:+919449313296"><svg class="ic"><use href="#i-phone"/></svg>94493 13296</a>
-    <a class="btn btn-ghost" href="tel:+918951813296"><svg class="ic"><use href="#i-phone"/></svg>89518 13296</a>
-  </div>
-  <span class="hashtag only-en">#NitinWedsAmulya</span><span class="hashtag only-kn" lang="kn">#ನಿತಿನ್_ಅಮೂಲ್ಯ</span>
-</footer>
 
 <!-- ═══ PHOTO LIGHTBOX ═══ -->
 <dialog class="lb" id="lightbox" aria-label="Photo viewer">
@@ -536,20 +497,12 @@ catch (e) { document.body.classList.add('lang-kn'); }</script>
   </div>
 </dialog>
 
-<!-- ═══ MUSIC ═══ -->
-<button type="button" class="music-prompt" id="musicPrompt">
-  <svg class="ic"><use href="#i-music"/></svg><span data-i18n="musicPrompt">Tap to play music</span>
-</button>
-<div class="player" id="player">
-  <button type="button" class="p-btn" id="playBtn" aria-pressed="false" data-i18n-aria="musicPlay" aria-label="Play music">
-    <svg class="ic i-play"><use href="#i-play"/></svg><svg class="ic i-pause"><use href="#i-pause"/></svg>
-  </button>
-</div>
-
 <!-- Motion (the library behind Framer Motion, vanilla-JS build, MIT) — vendored so the invitation has no CDN dependency -->
 <script src="vendor/motion.js"></script>
 <script src="js/config-i18n.js"></script>
 <script src="js/music.js"></script>
-<script src="js/app.js"></script>
+<script src="js/core.js"></script>
+<script src="js/scenes.js"></script>
+<script src="js/chapters.js"></script>
 </body>
 </html>
