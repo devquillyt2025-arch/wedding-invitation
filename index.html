@@ -837,8 +837,8 @@ catch (e) { document.body.classList.add('lang-kn'); }</script>
   <div class="couple-grid">
     <article class="person reveal" style="--d:.05s">
       <div class="frame">
-        <!-- REPLACE: couple_photo_2.jpg (groom, square ≥400×400) -->
-        <img src="https://placehold.co/400x400/C9A84C/FAF3E0?text=Nitin&amp;font=playfair-display" width="400" height="400" alt="Portrait of Nitin, the groom" data-i18n-alt="groomAlt" loading="lazy" decoding="async">
+        <!-- groom.jpg: square 600×600 crop, must sit in the same folder as this HTML file -->
+        <img src="groom.jpg" width="600" height="600" alt="Portrait of Nitin, the groom" data-i18n-alt="groomAlt" loading="lazy" decoding="async">
       </div>
       <p class="role"><span data-i18n="groomRole">The Groom</span></p>
       <h3 class="p-name"><span class="script shimmer only-en">Nitin V</span><span class="kn only-kn" lang="kn">ಚಿ॥ ರಾ॥ ನಿತಿನ್ ವಿ.</span></h3>
@@ -850,8 +850,8 @@ catch (e) { document.body.classList.add('lang-kn'); }</script>
 
     <article class="person reveal" style="--d:.25s">
       <div class="frame">
-        <!-- REPLACE: couple_photo_1.jpg (bride, square ≥400×400) -->
-        <img src="https://placehold.co/400x400/C9A84C/FAF3E0?text=Amulya&amp;font=playfair-display" width="400" height="400" alt="Portrait of Amulya, the bride" data-i18n-alt="brideAlt" loading="lazy" decoding="async">
+        <!-- bride.jpg: square 600×600 crop, must sit in the same folder as this HTML file -->
+        <img src="bride.jpg" width="600" height="600" alt="Portrait of Amulya, the bride" data-i18n-alt="brideAlt" loading="lazy" decoding="async">
       </div>
       <p class="role"><span data-i18n="brideRole">The Bride</span></p>
       <h3 class="p-name"><span class="script shimmer only-en">Amulya K S</span><span class="kn only-kn" lang="kn">ಚಿ॥ ಸೌ॥ ಅಮೂಲ್ಯ ಕೆ. ಎಸ್.</span></h3>
@@ -934,18 +934,11 @@ catch (e) { document.body.classList.add('lang-kn'); }</script>
 
   <div class="g-viewport reveal">
     <div class="g-track" id="gTrack" tabindex="0" aria-label="Photo gallery, scroll horizontally">
-      <!-- REPLACE: gallery_1.jpg (portrait 3:4) -->
-      <figure class="g-slot"><button type="button" class="g-open" data-i="0"><img src="https://placehold.co/600x800/C9A84C/FAF3E0?text=Moment+1&amp;font=playfair-display" width="600" height="800" alt="Gallery photo 1" loading="lazy" decoding="async"></button></figure>
-      <!-- REPLACE: gallery_2.jpg -->
-      <figure class="g-slot"><button type="button" class="g-open" data-i="1"><img src="https://placehold.co/600x800/C9A84C/FAF3E0?text=Moment+2&amp;font=playfair-display" width="600" height="800" alt="Gallery photo 2" loading="lazy" decoding="async"></button></figure>
-      <!-- REPLACE: gallery_3.jpg -->
-      <figure class="g-slot"><button type="button" class="g-open" data-i="2"><img src="https://placehold.co/600x800/C9A84C/FAF3E0?text=Moment+3&amp;font=playfair-display" width="600" height="800" alt="Gallery photo 3" loading="lazy" decoding="async"></button></figure>
-      <!-- REPLACE: gallery_4.jpg -->
-      <figure class="g-slot"><button type="button" class="g-open" data-i="3"><img src="https://placehold.co/600x800/C9A84C/FAF3E0?text=Moment+4&amp;font=playfair-display" width="600" height="800" alt="Gallery photo 4" loading="lazy" decoding="async"></button></figure>
-      <!-- REPLACE: gallery_5.jpg -->
-      <figure class="g-slot"><button type="button" class="g-open" data-i="4"><img src="https://placehold.co/600x800/C9A84C/FAF3E0?text=Moment+5&amp;font=playfair-display" width="600" height="800" alt="Gallery photo 5" loading="lazy" decoding="async"></button></figure>
-      <!-- REPLACE: gallery_6.jpg -->
-      <figure class="g-slot"><button type="button" class="g-open" data-i="5"><img src="https://placehold.co/600x800/C9A84C/FAF3E0?text=Moment+6&amp;font=playfair-display" width="600" height="800" alt="Gallery photo 6" loading="lazy" decoding="async"></button></figure>
+      <!-- gallery-N.jpg: full photos, must sit in the same folder as this HTML file. The strip crops them to 3:4; the lightbox shows them uncropped. -->
+      <figure class="g-slot"><button type="button" class="g-open" data-i="0"><img src="gallery-1.jpg" width="853" height="1280" alt="Nitin and Amulya smiling together as they hold a lantern" loading="lazy" decoding="async"></button></figure>
+      <figure class="g-slot"><button type="button" class="g-open" data-i="1"><img src="gallery-2.jpg" width="1280" height="853" style="object-position:47% 50%" alt="Nitin and Amulya standing back to back in front of a vintage camera shop" loading="lazy" decoding="async"></button></figure>
+      <figure class="g-slot"><button type="button" class="g-open" data-i="2"><img src="gallery-3.jpg" width="853" height="1280" alt="Nitin and Amulya walking together outside a cafe" loading="lazy" decoding="async"></button></figure>
+      <figure class="g-slot"><button type="button" class="g-open" data-i="3"><img src="gallery-4.jpg" width="853" height="1280" alt="Nitin and Amulya walking hand in hand along a flower-lined street" loading="lazy" decoding="async"></button></figure>
     </div>
     <div class="g-nav">
       <button type="button" class="g-btn" id="gPrev" data-i18n-aria="galPrev" aria-label="Previous photo"><svg class="ic"><use href="#i-left"/></svg></button>
